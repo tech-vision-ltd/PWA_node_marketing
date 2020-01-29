@@ -1,0 +1,28 @@
+{
+	"name": "demo-pwa",
+	"description": "Demo progressive web application",
+	"main": "server.js",
+	"version": "1.0.2",
+	"author": "https://github.com/gokulkrishh",
+	"dependencies": {
+		"aws-sdk": "^2.610.0",
+		"body-parser": "^1.18.3",
+		"ejs": "^3.0.1",
+		"express": "^4.16.4",
+		"node-gcm": "^1.0.2",
+		"nodemon": "^2.0.2",
+		"request": "^2.88.0"
+	},
+	"scripts": {
+		"start": "npm run css && nodemon server.js",
+		"css": "postcss -u autoprefixer -r css/*"
+	},
+	"devDependencies": {
+		"autoprefixer": "^9.4.3",
+		"postcss-cli": "^6.1.3"
+	},
+	"engines": {
+		"node": ">=8.11.2"
+	},
+	"license": "MIT"
+}
