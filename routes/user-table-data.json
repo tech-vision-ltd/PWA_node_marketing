@@ -1,0 +1,104 @@
+{
+  "_id": {
+    "$oid": "5e34683f061a1335fc05b8b3"
+  },
+  "first_name": "Yushuai",
+  "last_name": "Fan",
+  "userId": "fan",
+  "email": "yushuai@outlook.com",
+  "phone": "1243534554",
+  "type": "buyer",
+  "password": "aaa",
+  "repassword": "aaa",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1580492863512"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1580492863512"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+}
+{
+  "_id": {
+    "$oid": "5e346900061a1335fc05b8b4"
+  },
+  "first_name": "aaa",
+  "last_name": "kkk",
+  "userId": "kkk",
+  "email": "kkk@outlook.com",
+  "phone": "4789890756",
+  "type": "borrower",
+  "password": "sss",
+  "repassword": "sss",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1580493056308"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1580493056308"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+}
+{
+  "_id": {
+    "$oid": "5e35761ac62ce33e2cb3b16f"
+  },
+  "first_name": "aaa",
+  "last_name": "bbb",
+  "userId": "lll",
+  "email": "lll@outlook.com",
+  "phone": "1235645654",
+  "type": "lender",
+  "password": "lll",
+  "repassword": "lll",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1580561946409"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1580561946409"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+}
+{
+  "_id": {
+    "$oid": "5e357677c62ce33e2cb3b170"
+  },
+  "first_name": "sss",
+  "last_name": "ppp",
+  "userId": "qqq",
+  "email": "qqq@outlook.com",
+  "phone": "1235645654",
+  "type": "supplier",
+  "password": "qqq",
+  "repassword": "qqq",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1580562039154"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1580562039154"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+}

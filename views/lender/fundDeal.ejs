@@ -88,11 +88,11 @@
 
 <section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
     <div class="inner">
-        <div>
+        <div class="grid-style">
             <% for (var i = 0; i < deals.length; i++) { %>
                 <div class="deal_display" data-id="<%= deals[i].id%>"
                      style="background-color: #9ec6ff;width: 100%;margin-bottom: 25px;border-radius: 20px;border: 5px solid lightskyblue">
-                <div class="row" style="margin-right: -15px;margin-left: -15px">
+                    <div class="row" style="margin-right: -15px;margin-left: -15px">
                         <div class="col-md-6 col-sm-12">
                             <div class="row">
                                 <div class="col-sm-6 col-12" style="padding-left: 25px;padding-top: 10px">
@@ -165,25 +165,29 @@
         <div class="align-left">
             <!--<a href="#" class="button alt">Learn More</a>-->
             <header>
-                <h2 style="padding-left: 30px">Your Story</h2>
+                <h2 style="padding-left: 30px">Account Balance: </h2>
             </header>
-            <div style="border: 1px solid darkgrey">
-                <p style="padding:5px 10px"> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis.
-                    Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum.
-                    Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
+            <div class="row">
+                <form action="/lender/fund" method="post" id="form_fund">
+                    <input type="hidden" name="dealId" placeholder="Account Balance:" id="dealIdFund">
+                    <div class="form-group" style="display: flex;padding-left: 30px">
+                        <label for="fundAmount">Amount to Fund:</label>
+                        <input type="number" name="fundAmount" placeholder=" Amount to Fund:" id="fundAmount" class="form-control">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </section>
 
-<section class="wrapper">
+<section class="wrapper" style="margin-top: -50px">
     <div class="inner">
         <div class="row">
             <div class="col-6 align-right">
-                <button class="btn btn-lg btn-success"><a href="/borrower/deal"> Back </a></button>
+                <button class="btn btn-lg btn-success"><a href="/lender"> Cancel </a></button>
             </div>
             <div class="col-6 align-left">
-                <button class="btn btn-lg btn-success"><a href="/borrower/supplier"> Contiune </a></button>
+                <button class="btn btn-lg btn-success" id="btn_fund"> Submit </button>
             </div>
         </div>
     </div>
@@ -229,6 +233,11 @@
             var dealId = $(this).attr('data-id');
             window.location.href='/lender/openDeals/details/?id=' + dealId;
         });
+        $('#btn_fund').click(function () {
+            var dealId = '<%= deals[0].id %>';
+            $('#dealIdFund').val(dealId);
+            $('#form_fund').submit();
+        })
     })
 </script>
 </body>

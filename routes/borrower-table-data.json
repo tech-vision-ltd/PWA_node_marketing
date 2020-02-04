@@ -1,0 +1,95 @@
+[
+  {
+    "borrowerCountryCode":"USA",
+    "borrowerId":"borr001",
+    "borrowerEmailId":"borr001@mail.com",
+    "borrowerFirstName":"borrowerFirstN1",
+    "borrowerLastName":"borrowerLastN1",
+    "borrowerPhone":"555-500-5001",
+    "borrowerTaxID":"987654321",
+    "borrowerStory":"this is my borrowers story1",
+    "borrowerAddressInformation":{
+      "streetNo":"123",
+      "streetName":"Commercial Ave",
+      "city":"Denver",
+      "provinceStateCode":"CO",
+      "postalZipCode":"790900",
+      "countryCode":"USA"
+    },
+    "borrowerCompanyName":"Company ABC1",
+    "borrowerCompanyTaxID":"909000999",
+    "borrowerCompanyPhone":"987654331",
+    "borrowerCompanyWebsite":"mycompany1.com",
+    "borrowerCompanyContactName":"Michelle Smith1",
+    "borrowerCompanyAddressInformation":{
+      "streetNo":"123",
+      "streetName":"Commercial Ave",
+      "city":"Denver",
+      "provinceStateCode":"CO",
+      "postalZipCode":"790900",
+      "countryCode":"USA"
+    }
+  },
+  {
+    "borrowerCountryCode":"USA",
+    "borrowerId":"borr002",
+    "borrowerEmailId":"borr002@mail.com",
+    "borrowerFirstName":"borrowerFirstN2",
+    "borrowerLastName":"borrowerLastN2",
+    "borrowerPhone":"555-500-5002",
+    "borrowerTaxID":"987654322",
+    "borrowerStory":"this is my borrowers story2",
+    "borrowerAddressInformation":{
+      "streetNo":"1232",
+      "streetName":"Commercial Ave",
+      "city":"Denver",
+      "provinceStateCode":"CO",
+      "postalZipCode":"790902",
+      "countryCode":"USA"
+    },
+    "borrowerCompanyName":"Company ABC2",
+    "borrowerCompanyTaxID":"890000987",
+    "borrowerCompanyPhone":"987654332",
+    "borrowerCompanyWebsite":"mycompany2.com",
+    "borrowerCompanyContactName":"Michelle Smith2",
+    "borrowerCompanyAddressInformation":{
+      "streetNo":"1234",
+      "streetName":"Commercial Ave",
+      "city":"Denver",
+      "provinceStateCode":"CO",
+      "postalZipCode":"790902",
+      "countryCode":"USA"
+    }
+  },
+  {
+    "borrowerCountryCode":"CAN",
+    "borrowerId":"borr003",
+    "borrowerEmailId":"borr003@mail.com",
+    "borrowerFirstName":"borrowerFirstN3",
+    "borrowerLastName":"borrowerLastN3",
+    "borrowerPhone":"655-500-5003",
+    "borrowerTaxID":"987654323",
+    "borrowerStory":"this is my borrowers story3",
+    "borrowerAddressInformation":{
+      "streetNo":"1236",
+      "streetName":"Slater St",
+      "city":"Toronto",
+      "provinceStateCode":"ON",
+      "postalZipCode":"L3A1J7",
+      "countryCode":"CAN"
+    },
+    "borrowerCompanyName":"Company ABC Canada",
+    "borrowerCompanyTaxID":"888-777-090",
+    "borrowerCompanyPhone":"2167654331",
+    "borrowerCompanyWebsite":"mycompany1.ca",
+    "borrowerCompanyContactName":"Michelle Smith3",
+    "borrowerCompanyAddressInformation":{
+      "streetNo":"1238",
+      "streetName":"Slater St",
+      "city":"Toronto",
+      "provinceStateCode":"ON",
+      "postalZipCode":"L3A1J9",
+      "countryCode":"CAN"
+    }
+  }
+]

@@ -1,0 +1,45 @@
+const mongoose =require('mongoose');
+
+const FulldealSchema = new mongoose.Schema({
+    // _id: mongoose.Schema.Types.ObjectId,
+    fullLegalName : { type: String, required: true },
+    entityType : { type: String, required: true },
+    legalAddress : { type: String, required: true },
+    mailingAddress : { type: String, required: true },
+    taxId : { type: String, required: true },
+    phone : { type: Number, required: true },
+    companyName : { type: String, required: true },
+    businessAddress : { type: String, required: true },
+    companyTaxId : { type: String, required: true },
+    companyPhone : { type: Number, required: true },
+    companyWebsite : { type: String, required: true },
+    contactName : { type: String, required: true },
+    totalDealAmount : { type: Number, required: true },
+    requiredFunding : { type: Number, required: true },
+    expectedProfitMargin : { type: Number, required: true },
+    numberOfSuppliersInvolved : { type: Number, required: true },
+    dealType : { type: String, required: true },
+    expectedDeliveryDate : { type: String, required: true },
+    estimatedCostPerUnit : { type: String, required: true },
+    salesPricePerUnit : { type: String, required: true },
+    numberOfUnits : { type: String, required: true },
+    deadline : { type: String, required: true },
+    buyer : { type: String, required: true },
+    buyerFullLegalName : { type: String, required: true },
+    buyerEntityType : { type: String, required: true },
+    buyerLegalAddress : { type: String, required: true },
+    buyerMailingAddress : { type: String, required: true },
+    buyerTaxId : { type: String, required: true },
+    buyerPhone : { type: Number, required: true },
+    existingBuyer : {type: String, required: true},
+    buyerCompanyName : { type: String, required: true },
+    buyerBusinessAddress : { type: String, required: true },
+    buyerCompanyTaxId : { type: String, required: true },
+    buyerCompanyPhone : { type: Number, required: true },
+    buyerCompanyWebsite : { type: String, required: true },
+    buyerContactName : { type: String, required: true },
+},{timestamps:true});
+
+const Fulldeal = mongoose.model("Fulldeal", FulldealSchema);
+
+module.exports = Fulldeal;

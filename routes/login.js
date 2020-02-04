@@ -2,35 +2,87 @@ const express = require("express");
 const router = express.Router();
 const path = require('path');
 const bodyParser = require('body-parser'),
-    request = require('request');
-    // session = request('express-session');
+    request = require('request'),
+    User = require('../models/User');
+// session = request('express-session');
 // const db = require("../../JoinRoutes");
+var aws = require('aws-sdk');
+var fs = require('fs');
+var uuid = require('uuid/v1');
+
+aws.config.update({
+    region: 'local',
+    endpoint: 'http://localhost:8000'
+});
+
+var dynamodb = new aws.DynamoDB();
+var docClient = new aws.DynamoDB.DocumentClient();
 
 router.get("/", async (req, res) => {
     // querying all employees
-    var string = req.query.valid;
-    res.render('login/login.ejs', {message: string});
+    var string = req.session.message;
+    res.render('login/login.ejs', {messages: string});
 });
 
-router.post("/", (req, res) => {
-    let userId = req.body.UserID;
-    console.log('UserID is',      userId);
+router.post("/post", (req, res) => {
+    let account_type = req.body.account_type;
+    let userId = req.body.userId;
+    let password = req.body.password;
+
     if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
-        // req.session.success = 'User added successfully';
-        var string = encodeURIComponent(userId);
-        return res.redirect('/login?valid=' + string);
+        var string = userId;
+        req.session.message = 'recaptcha';
+        return res.redirect('/login');
     }
     const secretKey = '6LewaNMUAAAAAGZLUVvArt1sPl2dTL5j3UtX_bqV';
 
     const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
-    request(verificationURL,function(error,response,body) {
-        body = JSON.parse(body);
-
-        if(body.success !== undefined && !body.success) {
-            return res.json({"responseError" : "Failed captcha verification"});
-        }
-        return res.json({"responseSuccess" : "Sucess"});
+    request(verificationURL, function (error, response, body) {
+        var params = {
+            TableName: 'Users',
+            FilterExpression: '#type= :account_type AND #userId= :userId AND #password= :password',
+            ExpressionAttributeNames: {
+                "#type": "type",
+                "#userId": "userId",
+                "#password": "password"
+            },
+            ExpressionAttributeValues: {
+                ':account_type': account_type,
+                ':userId': userId,
+                ':password': password
+            },
+        };
+        docClient.scan(params, function (err, data) {
+            if (err) {
+                console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+            } else {
+                // console.log("trying to register___________", data.Items.length);
+                var count = data.Items.length;
+                if (count == 0){
+                    console.log('invalid__________');
+                    req.session.message = 'invalid';
+                    return res.redirect('/login');
+                } else {
+                    console.log('Success__________');
+                    req.session.userId = data.Items[0].id;
+                    req.session.password = password;
+                    req.session.type = account_type;
+                    return res.redirect('/' + account_type);
+                }
+            }
+        })
+        // let fetch = User.where({userId: userId, password: password, type:account_type}).countDocuments(function (err, count) {
+        //     if (!count){
+        //         req.session.message = 'invalid';
+        //         return res.redirect('/login');
+        //     } else {
+        //         req.session.userId = userId;
+        //         req.session.password = password;
+        //         req.session.type = account_type;
+        //         return res.redirect('/' + account_type);
+        //     }
+        // });
     });
 });
 

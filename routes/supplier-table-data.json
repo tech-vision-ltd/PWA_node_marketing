@@ -1,0 +1,90 @@
+[
+  {
+    "supplierCountryCode":"USA",
+    "supplierId":"supp001",
+    "supplierFirstName":"supplierFirstN1",
+    "supplierLastName":"supplierLastN1",
+    "supplierEmailId":"supplier001@mail.com",
+    "supplierPhone":"3459990101",
+    "supplierAddressInformation":{
+      "streetNo":"123",
+      "streetName":"Commercial Ave",
+      "city":"Denver",
+      "provinceStateCode":"CO",
+      "postalZipCode":"790900",
+      "countryCode":"USA"
+    },
+    "supplierCompanyName":"Company ABC1",
+    "supplierCompanyTaxID":"909000999",
+    "supplierCompanyPhone":"987654331",
+    "supplierCompanyWebsite":"mycompany1.com",
+    "supplierCompanyContactName":"Michelle Smith1",
+    "supplierCompanyAddressInformation":{
+      "streetNo":"123",
+      "streetName":"Commercial Ave",
+      "city":"Denver",
+      "provinceStateCode":"CO",
+      "postalZipCode":"790900",
+      "countryCode":"USA"
+    }
+  },
+  {
+    "supplierCountryCode":"USA",
+    "supplierId":"supp002",
+    "supplierFirstName":"supplierFirstN2",
+    "supplierLastName":"supplierLastN2",
+    "supplierEmailId":"supplier002@mail.com",
+
+    "supplierPhone":"3459990102",
+    "supplierAddressInformation":{
+      "streetNo":"1234",
+      "streetName":"Commercial Ave",
+      "city":"Denver",
+      "provinceStateCode":"CO",
+      "postalZipCode":"790900",
+      "countryCode":"USA"
+    },
+    "supplierCompanyName":"Company ABC2",
+    "supplierCompanyTaxID":"909000992",
+    "supplierCompanyPhone":"987654332",
+    "supplierCompanyWebsite":"mycompany2.com",
+    "supplierCompanyContactName":"Michelle Smith134",
+    "supplierCompanyAddressInformation":{
+      "streetNo":"1234",
+      "streetName":"Commercial Ave",
+      "city":"Denver",
+      "provinceStateCode":"CO",
+      "postalZipCode":"790904",
+      "countryCode":"USA"
+    }
+  },
+  {
+    "supplierCountryCode":"CAN",
+    "supplierId":"supp003",
+    "supplierFirstName":"supplierFirstN3",
+    "supplierLastName":"supplierLastN3",
+    "supplierEmailId":"supplier003@mail.com",
+    "supplierPhone":"2169990101",
+    "supplierAddressInformation":{
+      "streetNo":"90",
+      "streetName":"McKenzie Ave",
+      "city":"Toronto",
+      "provinceStateCode":"ON",
+      "postalZipCode":"L3A2J6",
+      "countryCode":"CAN"
+    },
+    "supplierCompanyName":"Canada Company ABC1",
+    "supplierCompanyTaxID":"809000999",
+    "supplierCompanyPhone":"345654331",
+    "supplierCompanyWebsite":"mycancompany1.com",
+    "supplierCompanyContactName":"Cameron Micheals",
+    "supplierCompanyAddressInformation":{
+      "streetNo":"123",
+      "streetName":"McKnight Street",
+      "city":"Toronto",
+      "provinceStateCode":"ON",
+      "postalZipCode":"L2A6U8",
+      "countryCode":"CAN"
+    }
+  }
+]

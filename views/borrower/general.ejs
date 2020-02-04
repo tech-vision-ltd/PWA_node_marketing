@@ -4,11 +4,44 @@
     <title>Borrower General</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/main.css"/>
-    <link rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/assets/css/main.css"/>
+    <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" href="/assets/plugins/owl-carousel/assets/css/docs.theme.min.css">
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="/assets/plugins/owl-carousel/assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/plugins/owl-carousel/assets/owlcarousel/assets/owl.theme.default.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="/assets/plugins/owl-carousel/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/assets/plugins/owl-carousel/assets/ico/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Yeah i know js should not be in header. Its required for demos.-->
+
+    <!-- javascript -->
+    <script src="/assets/plugins/owl-carousel/assets/vendors/jquery.min.js"></script>
+    <script src="/assets/plugins/owl-carousel/assets/owlcarousel/owl.carousel.js"></script>
+    <style>
+        .checked {
+            border: 5px solid green;
+            opacity: 0.6;
+        }
+    </style>
 </head>
-<body style="background-color: #f2f2f2">
+<body style="background-color: #f2f2f2;">
 
 <!-- Header -->
 <header id="header" class="alt">
@@ -28,7 +61,7 @@
 <!-- Banner -->
 <section class="banner" style="min-height: 50px;height: 50px;padding: 3.2em 0;">
     <article id="article">
-        <img src="images/slide01.jpg" alt=""/>
+        <img src="/images/slide01.jpg" alt=""/>
         <div class="inner">
             <header>
                 <p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
@@ -46,8 +79,8 @@
     <div class="inner">
         <div class="row">
             <div class="col-md-3 col-sm-3 col-6 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info active">
-                    <a href="/borrower">General</a>
+                <button class="btn btn-block btn-info  active">
+                    <a data-toggle="tab" href="#general">General</a>
                 </button>
             </div>
             <div class="col-md-3 col-sm-3 col-6 text-center" style="margin-bottom: 15px">
@@ -69,89 +102,391 @@
     </div>
 </section>
 
-<section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
-    <div class="inner">
-        <div class="grid-style">
+<form action="/borrower/deal/post" method="post" id="borrower_form">
+    <section class="tab-content">
+        <div id="general" class="tab-pane in active">
+            <section id="one" class="wrapper style2 tab-content" style="padding-top: 2rem;padding-bottom: 0rem;">
+                <div class="inner">
+                    <div class="grid-style">
 
-            <div>
-                <div class="box">
-                    <!--<div class="image fit">-->
-                        <!--<img src="images/pic02.jpg" alt=""/>-->
-                    <!--</div>-->
-                    <div class="content">
-                        <header class="align-center">
-                            <h2>Personal Information</h2>
-                        </header>
-                        <ul style="list-style-type: none">
-                            <li>Full Legal Name:</li>
-                            <li>Entity Type:</li>
-                            <li>Legal Address:</li>
-                            <li>Mailing Address:</li>
-                            <li>Tax ID:</li>
-                            <li>Phone:</li>
-                        </ul>
+                        <div>
+                            <div class="box">
+                                <div class="content">
+                                    <header class="align-center">
+                                        <h2>Personal Information</h2>
+                                    </header>
+                                    <div class="form-group text-left">
+                                        <label>Full Legal Name:</label>
+                                        <input class="form-control" type="text" name="full_legal_name"
+                                               id="full_legal_name" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Entity Type:</label>
+                                        <input class="form-control" type="text" name="entity_type" id="entity_type"
+                                               required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Legal Address:</label>
+                                        <input class="form-control" type="text" name="legal_address" id="legal_address"
+                                               required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Mailing Address:</label>
+                                        <input class="form-control" type="text" name="mailing_address"
+                                               id="mailing_address" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Tax ID:</label>
+                                        <input class="form-control" type="text" name="taxId" id="taxId" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Phone:</label>
+                                        <input class="form-control" type="number" name="phone" id="phone" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="box">
+                                <!--<div class="image fit">-->
+                                <!--<img src="images/pic03.jpg" alt=""/>-->
+                                <!--</div>-->
+                                <div class="content">
+                                    <header class="align-center">
+                                        <h2>Company Information</h2>
+                                    </header>
+                                    <div class="form-group text-left">
+                                        <label>Company Name:</label>
+                                        <input class="form-control" type="text" name="company_name" id="company_name"
+                                               required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Business Address:</label>
+                                        <input class="form-control" type="text" name="business_address"
+                                               id="business_address" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Tax ID:</label>
+                                        <input class="form-control" type="text" name="company_taxId" id="company_taxId"
+                                               required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Phone:</label>
+                                        <input class="form-control" type="number" name="company_phone"
+                                               id="company_phone" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Company Website:</label>
+                                        <input class="form-control" type="text" name="company_website"
+                                               id="company_website" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Contact Name:</label>
+                                        <input class="form-control" type="text" name="contactName" id="contactName"
+                                               required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div>
-                <div class="box">
-                    <!--<div class="image fit">-->
-                        <!--<img src="images/pic03.jpg" alt=""/>-->
-                    <!--</div>-->
-                    <div class="content">
-                        <header class="align-center">
-                            <h2>Company Information</h2>
+            <!-- Two -->
+
+            <section id="two" class="wrapper style2" style="padding-top: 0rem;">
+                <div class="inner">
+                    <div class="align-left">
+                        <!--<a href="#" class="button alt">Learn More</a>-->
+                        <header>
+                            <h2 style="padding-left: 30px">Your Story</h2>
                         </header>
-                        <ul style="list-style-type: none">
-                            <li>Company Name:</li>
-                            <li>Business Address:</li>
-                            <li>Tax ID:</li>
-                            <li>Phone:</li>
-                            <li>Company Website:</li>
-                            <li>Contact Name:</li>
-                        </ul>
-                        <!--<footer class="align-center">-->
-                            <!--<a href="#" class="button alt">Learn More</a>-->
-                        <!--</footer>-->
+                        <div style="border: 1px solid darkgrey">
+                            <p style="padding:5px 10px"> Cras aliquet urna ut sapien tincidunt, quis malesuada elit
+                                facilisis.
+                                Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum.
+                                Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
+            <section class="wrapper">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-6 align-right">
+                            <button class="btn btn-lg btn-success" type="button"> Cancel</button>
+                        </div>
+                        <div class="col-6 align-left">
+                            <button class="btn btn-lg btn-success" type="button" id="to_deal_btn"> Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
-</section>
+        <div id="deal" class="tab-pane">
+            <section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
+                <div class="inner">
+                    <div class="grid-style" style="background-color: white">
+                        <div class="text-center" style="width: 100%; margin: 15px">
+                            <h2>Deal Information</h2>
+                        </div>
+                        <div class="row" style="width: 100%">
+                            <div class="col-md-6 col-sm-12 col-12">
+                                <div class="form-group text-left">
+                                    <label>Total Deal Amount:</label>
+                                    <input class="form-control" type="number" name="total_deal_amount" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Required Funding:</label>
+                                    <input class="form-control" type="number" name="required_funding" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Expected Profit Margin:</label>
+                                    <input class="form-control" type="number" name="expected_profit" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Number of Suppliers Involved:</label>
+                                    <input class="form-control" type="number" name="num_suppliers_involved" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Deal Type:</label>
+                                    <select name="deal_type" id="deal_type" class="form-control">
+                                        <option value="revolving">Revolving</option>
+                                        <option value="oneTime">One Time</option>
+                                        <option value="Trial">Trial</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-12">
+                                <div class="form-group text-left">
+                                    <label>Expected Delivery Date:</label>
+                                    <input class="form-control" type="text" name="expected_delivery_date" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Estimated Cost Per Unit:</label>
+                                    <input class="form-control" type="text" name="ECPU" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Sales Price Per Unit:</label>
+                                    <input class="form-control" type="text" name="SPPU" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Number of Units:</label>
+                                    <input class="form-control" type="number" name="num_units" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Deadline:</label>
+                                    <input class="form-control" type="text" name="deadline" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
 
 
-<!-- Two -->
-<section id="two" class="wrapper style2" style="padding-top: 0rem;">
-    <div class="inner">
-        <div class="align-left">
-            <!--<a href="#" class="button alt">Learn More</a>-->
-            <header>
-                <h2 style="padding-left: 30px">Your Story</h2>
-            </header>
-            <div style="border: 1px solid darkgrey">
-                <p style="padding:5px 10px"> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis.
-                    Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum.
-                    Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-            </div>
+            <!-- Two -->
+            <section id="two" class="wrapper style2" style="padding-top: 0rem;">
+                <div class="inner">
+                    <div class="align-left">
+                        <div style="border: 1px solid darkgrey">
+                            <p style="padding:5px 10px"> Cras aliquet urna ut sapien tincidunt, quis malesuada elit
+                                facilisis.
+                                Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum.
+                                Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="wrapper">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-6 align-right">
+                            <button class="btn btn-lg btn-success" type="button" id="back_general_btn"> Back</button>
+                        </div>
+                        <div class="col-6 align-left">
+                            <button class="btn btn-lg btn-success" type="button" id="to_buyer_btn"> Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
-</section>
+        <div id="buyer" class="tab-pane">
+            <section id="one" class="wrapper style2 tab-content" style="padding-top: 2rem;padding-bottom: 0rem;">
+                <div class="inner">
+                    <div class="grid-style">
 
-<section class="wrapper">
-    <div class="inner">
-        <div class="row">
-            <div class="col-6 align-right">
-                <button class="btn btn-lg btn-success"> Cancel </button>
-            </div>
-            <div class="col-6 align-left">
-                <button class="btn btn-lg btn-success"><a href="/borrower/deal"> Contiune </a> </button>
-            </div>
+                        <div>
+                            <div class="box">
+                                <div class="content">
+                                    <header class="align-center">
+                                        <h2>Buyer Information</h2>
+                                    </header>
+                                    <div class="form-group text-left">
+                                        <label>Full Legal Name:</label>
+                                        <input class="form-control" type="text" name="buyer_full_legal_name" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Entity Type:</label>
+                                        <input class="form-control" type="text" name="buyer_entity_type" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Legal Address:</label>
+                                        <input class="form-control" type="text" name="buyer_legal_address" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Mailing Address:</label>
+                                        <input class="form-control" type="text" name="buyer_mailing_address" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Phone:</label>
+                                        <input class="form-control" type="number" name="buyer_phone" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Existing Buyer?:</label>
+                                        <input class="form-control" type="text" name="existing_buyer" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="box">
+                                <div class="content">
+                                    <header class="align-center">
+                                        <h2>Company Information</h2>
+                                    </header>
+                                    <div class="form-group text-left">
+                                        <label>Company Name:</label>
+                                        <input class="form-control" type="text" name="buyer_company_name" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Business Address:</label>
+                                        <input class="form-control" type="text" name="buyer_business_address" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Tax ID:</label>
+                                        <input class="form-control" type="text" name="buyer_company_taxId" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Phone:</label>
+                                        <input class="form-control" type="number" name="buyer_company_phone" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Company Website:</label>
+                                        <input class="form-control" type="text" name="buyer_company_website" required>
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label>Contact Name:</label>
+                                        <input class="form-control" type="text" name="buyer_contactName" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two -->
+
+            <section id="two" class="wrapper style2" style="padding-top: 0rem;">
+                <div class="inner">
+                    <div class="align-left">
+                        <!--<a href="#" class="button alt">Learn More</a>-->
+                        <header>
+                            <h2 style="padding-left: 30px">Your Story</h2>
+                        </header>
+                        <div style="border: 1px solid darkgrey">
+                            <p style="padding:5px 10px"> Cras aliquet urna ut sapien tincidunt, quis malesuada elit
+                                facilisis.
+                                Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum.
+                                Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="wrapper">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-6 align-right">
+                            <button class="btn btn-lg btn-success" type="button" id="back_deal_btn"> Back</button>
+                        </div>
+                        <div class="col-6 align-left">
+                            <button class="btn btn-lg btn-success" type="button" id="to_supplier_btn"> Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
-</section>
+        <div id="supplier" class="tab-pane">
+            <section id="demos">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="owl-carousel owl-theme">
+                            <% for (var i = 0;i < suppliers.length;i++) { %>
+                                <div class="item" aria-checked="false" data-id='<%= suppliers[i].id%>' data-name="<%=`${suppliers[i].supplierFirstName} ${suppliers[i].supplierLastName}`%>">
+                                    <header class="align-center">
+                                        <h4>Supplier <%= i + 1 %></h4>
+                                    </header>
+                                    <ul style="list-style-type: none">
+                                        <li>Full Legal Name :<%= suppliers[i].supplierFirstName %> <%= suppliers[i].supplierLastName %></li>
+                                        <li>Entity Type :</li>
+                                        <li>Legal Address : <%= suppliers[i].supplierAddressInformation.streetName %> <%= suppliers[i].supplierAddressInformation.city %> <%= suppliers[i].supplierAddressInformation.countryCode %></li>
+                                        <li>Mailing Address : <%= suppliers[i].supplierEmailId %></li>
+                                        <li>Contact Name : <%= suppliers[i].supplierCompanyContactName %></li>
+                                        <li>Contact Email
+                                            : <%= suppliers[i].supplierAddressInformation.streetName %></li>
+                                        <li>Contact Phone : <%= suppliers[i].supplierPhone %></li>
+                                        <li>Product/Service :</li>
+                                        <li>Product/Service Name :</li>
+                                        <li>Estimated Cost Price/Unit :</li>
+                                    </ul>
+                                </div>
+                            <% } %>
+                        </div>
+                        <script src="/assets/plugins/owl-carousel/assets/vendors/jquery.mousewheel.min.js"></script>
+                    </div>
+                </div>
+            </section>
+
+            <section id="two" class="wrapper style2" style="padding-top: 0rem; margin-top: 0px">
+                <div class="inner">
+                    <div class="align-left">
+                        <!--<header>-->
+                        <!--<h2 style="padding-left: 30px">Your Story</h2>-->
+                        <!--</header>-->
+                        <div>
+                <textarea id="ta_selected_items" style="height: 120px;overflow-y: scroll">
+
+                </textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="wrapper">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-6 align-right">
+                            <button class="btn btn-lg btn-success" type="button" id="back_buyer_btn"> Back</button>
+                        </div>
+                        <div class="col-6 align-left">
+                            <button class="btn btn-lg btn-success" type="button" id="submit_btn"> Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <input type="hidden" name="supplier_array" id="supplier_array"/>
+</form>
 
 
 <!-- Footer -->
@@ -170,12 +505,13 @@
 </footer>
 
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/plugins/toastr/toastr.min.js"></script>
+<!--<script src="/assets/js/jquery.min.js"></script>-->
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/plugins/toastr/toastr.min.js"></script>
+<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <!--<script src="./js/toast.js"></script>-->
 <!--<script src="./js/main.js"></script>-->
 <!--<script src="./js/offline.js"></script>-->
@@ -184,16 +520,104 @@
 <!--<script src="./js/sync.js"></script>-->
 <!--<script src="./js/share.js"></script>-->
 <!--<script src="./js/menu.js"></script>-->
+<script src="/assets/plugins/owl-carousel/assets/vendors/highlight.js"></script>
+<script src="/assets/plugins/owl-carousel/assets/js/app.js"></script>
 <script>
     $(document).ready(function () {
         toastr.success('You are logged in as a borrower.');
 
         $('#article').hide();
 
-        // $('#menu_link').click(function () {
-        //     $('#menu').addClass('visible');
-        // })
-    })
+
+        $('#to_deal_btn').click(function () {
+            // if ($('#full_legal_name').val() == '' || $('#entity_type').val() == '' || $('#legal_address').val() == '' || $('#mailing_address').val() == ''
+            //     || $('#taxId').val() == '' || $('#phone').val() == '' || $('#company_name').val() == '' || $('#business_address').val() == ''
+            //     || $('#company_taxId').val() == '' || $('#company_phone').val() == '' || $('#company_website').val() == '' || $('#contactName').val() == '') {
+            //     toastr.error('Please fill out all the input fields.');
+            // } else {
+            $('#general').removeClass('active');
+            $('#deal').addClass('active');
+            // }
+        });
+        $('#back_general_btn').click(function () {
+            $('#deal').removeClass('active');
+            $('#general').addClass('active');
+        })
+        $('#to_buyer_btn').click(function () {
+            $('#deal').removeClass('active');
+            $('#buyer').addClass('active');
+        });
+        $('#back_deal_btn').click(function () {
+            $('#buyer').removeClass('active');
+            $('#deal').addClass('active');
+        });
+        $('#to_supplier_btn').click(function () {
+            $('#buyer').removeClass('active');
+            $('#supplier').addClass('active');
+        });
+        $('#back_buyer_btn').click(function () {
+            $('#supplier').removeClass('active');
+            $('#buyer').addClass('active');
+        });
+
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            loop: false,
+            nav: true,
+            margin: 10,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                960: {
+                    items: 2
+                },
+                1100: {
+                    items: 3
+                }
+            }
+        });
+        owl.on('mousewheel', '.owl-stage', function (e) {
+            if (e.deltaY > 0) {
+                owl.trigger('next.owl');
+            } else {
+                owl.trigger('prev.owl');
+            }
+            e.preventDefault();
+        });
+
+        $('[aria-checked="false"]').click(function () {
+            $(this).toggleClass('checked');
+            setTimeout(showSelectedItems, 0);
+        });
+
+        $('.checked').click(function () {
+            alert('sss');
+        })
+
+        $('#submit_btn').click(beforeSubmit);
+    });
+
+    function showSelectedItems(){
+        var elements = $('div.checked');
+        var names = [];
+        for(var i = 0; i < elements.length; i++){
+            names.push($(elements[i]).attr('data-name'));
+        }
+        $('textarea#ta_selected_items').val(names.join("\n"));
+    }
+
+    function beforeSubmit(){
+        var elements = $('div.checked');
+        var ids = [];
+        for(var i = 0; i < elements.length; i++){
+            ids.push($(elements[i]).attr('data-id'));
+        }
+        console.log(ids);
+        $('#supplier_array').val(ids.join(","));
+        $('#borrower_form').submit();
+    }
+
 </script>
 </body>
 </html>

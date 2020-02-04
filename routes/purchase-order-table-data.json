@@ -1,0 +1,30 @@
+[
+  {
+    "purchaseOrderCountryCode":"USA",
+    "purchaseOrderId":"buy001#po0001",
+    "purchaseOrderBuyerId":"buy001",
+    "purchaseOrderEffectiveDate":"default",
+    "purchaseOrderProductServices":["ps001"]
+  },
+  {
+    "purchaseOrderCountryCode":"USA",
+    "purchaseOrderId":"buy001#po0002",
+    "purchaseOrderBuyerId":"buy001",
+    "purchaseOrderEffectiveDate":"default",
+    "purchaseOrderProductServices":["ps001","ps002"]
+  },
+  {
+    "purchaseOrderCountryCode":"CAN",
+    "purchaseOrderId":"buy003#po0003",
+    "purchaseOrderBuyerId":"buy003",
+    "purchaseOrderEffectiveDate":"default",
+    "purchaseOrderProductServices":["ps001","ps002","ps003"]
+  },
+  {
+    "purchaseOrderCountryCode":"CAN",
+    "purchaseOrderId":"buy003#po0004",
+    "purchaseOrderBuyerId":"buy003",
+    "purchaseOrderEffectiveDate":"default",
+    "purchaseOrderProductServices":["ps0002"]
+    }
+]

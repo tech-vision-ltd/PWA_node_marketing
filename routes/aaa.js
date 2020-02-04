@@ -1,0 +1,13 @@
+    "supplierCountryCode":lender.supplierCountryCode,
+    "supplierId":lender.supplierId,
+    "supplierFirstName":lender.supplierFirstName,
+    "supplierLastName":lender.supplierLastName,
+    "supplierEmailId":lender.supplierEmailId,
+    "supplierPhone":lender.supplierPhone,
+    "supplierAddressInformation":lender.supplierAddressInformation,
+    "supplierCompanyName":lender.supplierCompanyName,
+    "supplierCompanyTaxID":lender.supplierCompanyTaxID,
+    "supplierCompanyPhone":lender.supplierCompanyPhone,
+    "supplierCompanyWebsite":lender.supplierCompanyWebsite,
+    "supplierCompanyContactName":lender.supplierCompanyContactName,
+    "supplierCompanyAddressInformation":lender.supplierCompanyAddressInformation

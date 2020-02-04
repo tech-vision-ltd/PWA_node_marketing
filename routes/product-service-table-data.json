@@ -1,0 +1,29 @@
+[
+  {
+    "productServiceId":"ps001",
+    "productServiceName":"default",
+    "productServiceDescription":"tets description",
+    "productServiceProducerId":"test producer id",
+    "productServiceProducerName":"test producer name",
+    "productServiceCurrency":"USD",
+    "productServiceUnitCost":"200"
+  },
+  {
+    "productServiceId":"ps002",
+    "productServiceName":"default",
+    "productServiceDescription":"tets description",
+    "productServiceProducerId":"test producer id",
+    "productServiceProducerName":"test producer name",
+    "productServiceCurrency":"USD",
+    "productServiceUnitCost":"230"
+  },
+  {
+    "productServiceId":"ps003",
+    "productServiceName":"default",
+    "productServiceDescription":"tets description",
+    "productServiceProducerId":"test producer id",
+    "productServiceProducerName":"test producer name",
+    "productServiceCurrency":"CAD",
+    "productServiceUnitCost":"200"
+    }
+]

@@ -1,0 +1,89 @@
+[
+  {
+    "buyerCountryCode": "USA",
+    "buyerId": "buy001",
+    "buyerFirstName": "buyerFirstN1",
+    "buyerLastName": "buyerLastN1",
+    "buyerEmailId": "buyer001@mail.com",
+    "buyerPhone": "3459990101",
+    "buyerAddressInformation": {
+      "streetNo": "123",
+      "streetName": "Commercial Ave",
+      "city": "Denver",
+      "provinceStateCode": "CO",
+      "postalZipCode": "790900",
+      "countryCode": "USA"
+    },
+    "buyerCompanyName": "Company ABC1",
+    "buyerCompanyTaxID": "909000999",
+    "buyerCompanyPhone": "987654331",
+    "buyerCompanyWebsite": "mycompany1.com",
+    "buyerCompanyContactName": "Michelle Smith1",
+    "buyerCompanyAddressInformation": {
+      "streetNo": "123",
+      "streetName": "Commercial Ave",
+      "city": "Denver",
+      "provinceStateCode": "CO",
+      "postalZipCode": "790900",
+      "countryCode": "USA"
+    }
+  },
+  {
+    "buyerCountryCode": "USA",
+    "buyerId": "buy002",
+    "buyerFirstName": "buyerFirstN2",
+    "buyerLastName": "buyerLastN2",
+    "buyerEmailId": "buyer002@mail.com",
+    "buyerPhone": "3459990102",
+    "buyerAddressInformation": {
+      "streetNo": "1234",
+      "streetName": "Commercial Ave",
+      "city": "Denver",
+      "provinceStateCode": "CO",
+      "postalZipCode": "790900",
+      "countryCode": "USA"
+    },
+    "buyerCompanyName": "Company ABC2",
+    "buyerCompanyTaxID": "909000992",
+    "buyerCompanyPhone": "987654332",
+    "buyerCompanyWebsite": "mycompany2.com",
+    "buyerCompanyContactName": "Michelle Smith134",
+    "buyerCompanyAddressInformation": {
+      "streetNo": "1234",
+      "streetName": "Commercial Ave",
+      "city": "Denver",
+      "provinceStateCode": "CO",
+      "postalZipCode": "790904",
+      "countryCode": "USA"
+    }
+  },
+  {
+    "buyerCountryCode": "CAN",
+    "buyerId": "buy003",
+    "buyerFirstName": "buyerFirstN3",
+    "buyerLastName": "buyerLastN3",
+    "buyerEmailId": "buyer003@mail.com",
+    "buyerPhone": "2169990101",
+    "buyerAddressInformation": {
+      "streetNo": "90",
+      "streetName": "McKenzie Ave",
+      "city": "Toronto",
+      "provinceStateCode": "ON",
+      "postalZipCode": "L3A2J6",
+      "countryCode": "CAN"
+    },
+    "buyerCompanyName": "Canada Company ABC1",
+    "buyerCompanyTaxID": "809000999",
+    "buyerCompanyPhone": "345654331",
+    "buyerCompanyWebsite": "mycancompany1.com",
+    "buyerCompanyContactName": "Cameron Micheals",
+    "buyerCompanyAddressInformation": {
+      "streetNo": "123",
+      "streetName": "McKnight Street",
+      "city": "Toronto",
+      "provinceStateCode": "ON",
+      "postalZipCode": "L2A6U8",
+      "countryCode": "CAN"
+    }
+  }
+]

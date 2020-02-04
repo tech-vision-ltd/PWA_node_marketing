@@ -1,0 +1,100 @@
+[
+  {
+    "dealCountryCode": "USA",
+    "dealId": "deal001",
+    "dealTitle": "deal name 1",
+    "dealBorrowerId": "borr001",
+    "dealCurrency": "USD",
+    "dealAmountRequired": "10000",
+    "dealAmountFunded": "9000",
+    "dealExpectedMargin": "0.8",
+    "dealType": "Revolving",
+    "dealDateExpected": "2020-02-28",
+    "dealCostPerUnit": "20",
+    "dealSalePricePerUnit": "39",
+    "dealNumberUnits": "500",
+    "dealDateDeadline": "2020-02-28",
+    "dealLenders": [
+      {
+        "lenderId": "lend001",
+        "amountToFund": "2000"
+      }
+    ],
+    "dealSuppliers": [
+      "supp001",
+      "supp002"
+    ],
+    "dealBuyers": [
+      "buy001"
+    ],
+    "dealPurchaseOrders": [
+      "buy001#po0001"
+    ]
+  },
+  {
+    "dealCountryCode": "USA",
+    "dealId": "deal002",
+    "dealTitle": "deal name 2",
+    "dealBorrowerId": "borr002",
+    "dealCurrency": "USD",
+    "dealAmountRequired": "10000",
+    "dealAmountFunded": "10000",
+    "dealExpectedMargin": "0.7",
+    "dealType": "One Time",
+    "dealDateExpected": "2020-02-28",
+    "dealCostPerUnit": "20",
+    "dealSalePricePerUnit": "39",
+    "dealNumberUnits": "500",
+    "dealDateDeadline": "2020-02-28",
+    "dealLenders": [
+      {
+        "lenderId": "lend001",
+        "amountToFund": "2000"
+      },
+      {
+        "lenderId": "lend002",
+        "amountToFund": "5000"
+      }
+    ],
+    "dealSuppliers": [
+      "supp001"
+    ],
+    "dealBuyers": [
+      "buy001"
+    ],
+    "dealPurchaseOrders": [
+      "buy001#po0002"
+    ]
+  },
+  {
+    "dealCountryCode": "CAN",
+    "dealId": "deal003",
+    "dealTitle": "deal name 3",
+    "dealBorrowerId": "borr003",
+    "dealCurrency": "CAD",
+    "dealAmountRequired": "50000",
+    "dealAmountFunded": "9000",
+    "dealExpectedMargin": "0.4",
+    "dealType": "Trial",
+    "dealDateExpected": "2020-03-01",
+    "dealCostPerUnit": "20",
+    "dealSalePricePerUnit": "39",
+    "dealNumberUnits": "500",
+    "dealDateDeadline": "2020-02-28",
+    "dealLenders": [
+      {
+        "lenderId": "lend003",
+        "amountToFund": "2500"
+      }
+    ],
+    "dealSuppliers": [
+      "supp003"
+    ],
+    "dealBuyers": [
+      "buy003"
+    ],
+    "dealPurchaseOrders": [
+      "buy003#po0003"
+    ]
+  }
+]

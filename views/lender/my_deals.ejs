@@ -73,12 +73,12 @@
     <div class="inner">
         <div class="row">
             <div class="col-6 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-lg btn-info active">
+                <button class="btn btn-lg btn-info">
                     <a href="/lender"> Open Deals </a>
                 </button>
             </div>
             <div class="col-6 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-lg btn-info">
+                <button class="btn btn-lg btn-info active">
                     <a href="/lender/my_deal"> My Deals </a>
                 </button>
             </div>
@@ -88,73 +88,8 @@
 
 <section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
     <div class="inner">
-        <div>
-            <% for (var i = 0; i < deals.length; i++) { %>
-                <div class="deal_display" data-id="<%= deals[i].id%>"
-                     style="background-color: #9ec6ff;width: 100%;margin-bottom: 25px;border-radius: 20px;border: 5px solid lightskyblue">
-                <div class="row" style="margin-right: -15px;margin-left: -15px">
-                        <div class="col-md-6 col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-6 col-12" style="padding-left: 25px;padding-top: 10px">
-                                    <h5>DealID: <%= deals[i].id %></h5>
-                                    <h5>Deal headline: <%= deals[i].fullLegalName %></h5>
-                                </div>
-                                <div class="col-sm-6 col-12" style="padding-left: 20px">
-                                    <h5>Deal Type: <%= deals[i].entityType %></h5>
-                                    <button class="btn btn-lg btn-secondary">Participate</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 ">
-                            <div class="description_div">
-                                <p>Description</p>
-                            </div>
-                            <div class="row text-left" style="padding-left: 10px">
-                                <div class="col-sm-3 col-6" style="margin-bottom: 15px">
-                                    <button class="btn btn-info btn_display">Deadline</button>
-                                </div>
-                                <div class="col-sm-3 col-6" style="margin-bottom: 15px">
-                                    <button class="btn btn-info btn_display">Timeline</button>
-                                </div>
-                                <div class="col-sm-3 col-6" style="margin-bottom: 15px">
-                                    <button class="btn btn-info btn_display">Return(%)</button>
-                                </div>
-                                <div class="col-sm-3 col-6" style="margin-bottom: 15px">
-                                    <button class="btn btn-info btn_display">RODA.%</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-5 col-12">
-                                    <div class="btn-group-vertical" style="width: 100%;">
-                                        <button type="button" class="btn btn-info btn-block" style="margin-bottom:10px">
-                                            Total Deal Amount
-                                        </button>
-                                        <button type="button" class="btn btn-info btn-block" style="margin-bottom:10px">
-                                            Contribution
-                                        </button>
-                                        <button type="button" class="btn btn-info btn-block" style="margin-bottom:10px">
-                                            Crowdlending
-                                        </button>
-                                        <button type="button" class="btn btn-info btn-block" style="margin-bottom:10px">
-                                            DLS Club
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-sm-7 col-12 text-center">
-                                    <div class="chart">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <% } %>
-        </div>
+        <!--<div class="grid-style">-->
+        <!--</div>-->
     </div>
 </section>
 

@@ -1,0 +1,23 @@
+[
+  {
+    "lenderCountryCode":"USA",
+    "lenderId":"lend001",
+    "lenderEmailId":"lend001@mail.com",
+    "lenderFirstName":"lenderFname1",
+    "lenderLastName":"lenderLname1"
+  },
+  {
+    "lenderCountryCode":"USA",
+    "lenderId":"lend002",
+    "lenderEmailId":"lend002@mail.com",
+    "lenderFirstName":"lenderFname2",
+    "lenderLastName":"lenderLname2"
+  },
+  {
+    "lenderCountryCode":"CAN",
+    "lenderId":"lend003",
+    "lenderEmailId":"lend003@mail.com",
+    "lenderFirstName":"lenderFname3",
+    "lenderLastName":"lenderLname3"
+  }
+]

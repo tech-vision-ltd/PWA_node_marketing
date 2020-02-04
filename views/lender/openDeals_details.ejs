@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Borrower Buyer</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css"/>
+    <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
+    <style>
+        .btn-group-vertical button {
+            font-size: 0.75rem;
+        }
+        #iframe_borrower {
+            width: 100%;
+            height: 1000px;
+            border-bottom: 25px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header" class="alt">
+    <div class="logo"><a href="/borrower"><span>Lender</span></a></div>
+    <a href="#menu" id="menu_link"><span id="span_menu">Menu</span></a>
+</header>
+
+<!-- Nav -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="#"> My Deals </a></li>
+        <li><a href="#"> Alerts </a></li>
+        <li><a href="#"> Messages </a></li>
+        <li><a href="#"> Account </a></li>
+        <li><a href="#"> Help </a></li>
+    </ul>
+</nav>
+
+<!-- Banner -->
+<section class="banner" style="min-height: 50px;height: 50px;padding: 3.2em 0;">
+    <article id="article">
+        <img src="/images/slide01.jpg" alt=""/>
+        <div class="inner">
+            <header>
+                <p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
+                <h2>Hielo</h2>
+            </header>
+        </div>
+    </article>
+</section>
+
+<div id="borrower_title">
+    Open Deals
+</div>
+<!-- One -->
+<section class="wrapper">
+    <div class="inner">
+        <div class="row">
+            <div class="col-6 text-center" style="margin-bottom: 15px">
+                <button class="btn btn-lg btn-success active">
+                    <a href="/lender"> Open Deals </a>
+                </button>
+            </div>
+            <div class="col-6 text-center" style="margin-bottom: 15px">
+                <button class="btn btn-lg btn-success">
+                    <a href="/lender/my_deal"> My Deals </a>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;background-image: url('/images/bg.jpg')">
+    <div class="inner">
+        <div class="grid-style">
+            <iframe src="/lender/dealDetails" frameborder="0" id="iframe_borrower"></iframe>
+        </div>
+    </div>
+</section>
+
+
+<!-- Two -->
+
+<section class="wrapper">
+    <div class="inner">
+        <div class="row">
+            <div class="col-6 align-right">
+                <button class="btn btn-lg btn-info"><a href="#"> Cancel </a></button>
+            </div>
+            <div class="col-6 align-left">
+                <button class="btn btn-lg btn-info"><a href="/lender/fund"> Fund Deal </a></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; Untitled. All rights reserved.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/plugins/toastr/toastr.min.js"></script>
+<!--<script src="./js/toast.js"></script>-->
+<!--<script src="./js/main.js"></script>-->
+<!--<script src="./js/offline.js"></script>-->
+<!--<script src="./js/app.js"></script>-->
+<!--<script src="./js/push.js"></script>-->
+<!--<script src="./js/sync.js"></script>-->
+<!--<script src="./js/share.js"></script>-->
+<!--<script src="./js/menu.js"></script>-->
+<script>
+    $(document).ready(function () {
+        toastr.success('You are logged in as a lender.');
+        $('#article').hide();
+        $('.deal_display').click(function () {
+            $(this).css('opacity', '0.6');
+            window.location.href='/lender/openDeals/details';
+        });
+    })
+</script>
+</body>
+</html>

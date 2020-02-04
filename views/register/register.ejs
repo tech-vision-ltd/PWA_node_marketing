@@ -12,7 +12,7 @@
     <link rel="icon" href="../../assets/img/brand/favicon.ico" type="image/x-icon"/>
 
     <!-- Title -->
-    <title>Dashlead -  Admin Panel HTML Dashboard Template</title>
+    <title>Register</title>
 
     <!---Fontawesome css-->
     <link href="../../assets/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@
             </div>
             <div class="card custom-card">
                 <div class="card-body">
-                    <h4 class="text-center">Renew Your Password</h4>
+                    <h4 class="text-center">Setup Profile</h4>
                     <form id="login_form" action="/register" method="post">
                         <div class="form-group text-left">
                             <label>FirstName:</label>
@@ -69,24 +69,32 @@
                             <input class="form-control" placeholder="Enter your LastName" type="text" name="lastname">
                         </div>
                         <div class="form-group text-left">
+                            <label>UserID:</label>
+                            <input class="form-control" placeholder="Enter your UserID" type="text" name="userId">
+                        </div>
+                        <div class="form-group text-left">
                             <label>Email:</label>
                             <input class="form-control" placeholder="Enter your Email" type="email" name="email">
                         </div>
                         <div class="form-group text-left">
                             <label>Phone:</label>
-                            <input class="form-control" placeholder="Enter your Phone" type="text" name="phone">
+                            <input class="form-control" placeholder="Enter your Phone" type="number" name="phone">
                         </div>
                         <div class="form-group text-left">
                             <label>Type:</label>
-                            <select class="form-control" type="text" name="password">
-                                <option value="Borrower">Borrower</option>
-                                <option value="Borrower">Lender</option>
-                                <option value="Borrower">Supplier</option>
-                                <option value="Borrower">Buyer</option>
+                            <select class="form-control" type="text" name="account_type">
+                                <option value="borrower">Borrower</option>
+                                <option value="lender">Lender</option>
+                                <option value="supplier">Supplier</option>
+                                <option value="buyer">Buyer</option>
                             </select>
                         </div>
                         <div class="form-group text-left">
                             <label>Password:</label>
+                            <input class="form-control" placeholder="Enter your password" type="password" name="password">
+                        </div>
+                        <div class="form-group text-left">
+                            <label>Confirm Password:</label>
                             <input class="form-control" placeholder="Enter your password" type="password" name="repassword">
                         </div>
                         <div class="form-group text-center">
