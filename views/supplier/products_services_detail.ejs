@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/main.css"/>
     <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
+    <style>
+        .box {
+            opacity: 0.85;
+            background-color: black;
+        }
+
+        button a {
+            color: white!important;
+        }
+
+        .box header h2 {
+            color: white !important;
+        }
+
+        .box .form-group .form-control {
+            background-color: white !important;
+            border-radius: 5px;
+        }
+
+        .box ul li {
+            color: white !important;
+        }
+
+        .navigate button a {
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body style="background-color: #f2f2f2">
 
@@ -19,9 +46,9 @@
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="generic.html">Generics</a></li>
-        <li><a href="elements.html">Elements</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Generics</a></li>
+        <li><a href="#">Elements</a></li>
     </ul>
 </nav>
 
@@ -42,86 +69,77 @@
     Supplier
 </div>
 <!-- One -->
-<section class="wrapper" style="background-color: #f2f2f2">
-    <div class="inner">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info">
-                    <a href="/supplier"> Corporate Info </a>
-                </button>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info active">
-                    <a href="/supplier/products_services"> Products/Services </a>
-                </button>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info">
-                    <a href="/supplier/open_deals"> Open Deals </a>
-                </button>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info">
-                    <a href="/supplier/my_deals"> My Deals </a>
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
-    <div class="inner">
-        <div class="grid-style" style="background-color: white">
-            <div class="text-center" style="width: 100%; margin: 15px">
-                <h2>Product/Service Details</h2>
-            </div>
-            <div class="row" style="width: 100%;">
-                <div class="col-md-6 col-sm-12 col-12">
-                    <ul style="list-style-type: none">
-                        <li>Product/Service Description:</li>
-                        <li>Quality Control:</li>
-                        <li>Expected Payment Terms:</li>
-                        <li>Quantity able to provide:</li>
-                        <li>Factory Location:</li>
-                        <li>Incoterm:</li>
-                    </ul>
+<div class="container-fluid" style="background-image: url('/images/slide04.jpg');background-repeat: no-repeat;background-size: cover;">
+    <section class="wrapper">
+        <div class="inner">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info">
+                        <a href="/supplier"> Corporate Info </a>
+                    </button>
                 </div>
-                <div class="col-md-6 col-sm-12 col-12">
-                    <ul style="list-style-type: none">
-                        <li>Measurement Unit:</li>
-                        <li>Required licenses in place:</li>
-                        <li>Able to provide by:</li>
-                        <li>Expected price per unit:</li>
-                        <li>Suitability for the deal(%):</li>
-                        <li>Production History:</li>
-                    </ul>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info active">
+                        <a href="/supplier/products_services"> Products/Services </a>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info">
+                        <a href="/supplier/open_deals"> Open Deals </a>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info">
+                        <a href="/supplier/my_deals"> My Deals </a>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Two -->
-<section id="two" class="wrapper style2" style="padding-top: 0rem;">
-    <div class="inner">
-        <div class="align-left">
-            <div>
-                <p style="padding:5px 10px"> I have the authority to sell the product/service on behalf of the
-                    company.</p>
+    <section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
+        <div class="inner">
+            <div class="grid-style box">
+                <header class="text-left" style="width: 100%; margin: 25px 50px">
+                    <h2>Product/Service Details</h2>
+                </header>
+                <div class="row" style="width: 100%;">
+                    <div class="col-md-6 col-sm-12 col-12">
+                        <ul style="list-style-type: none">
+                            <li>Product/Service Description: <%= product.productServiceDescription%></li>
+                            <li>Quality Control: <%= product.quantityControl%></li>
+                            <li>Expected Payment Terms: <%= product.expectedPaymentTerms%></li>
+                            <li>Quantity able to provide: <%= product.quantityAbleToProvide%></li>
+                            <li>Factory Location: <%= product.factoryLocation%></li>
+                            <li>Incoterm: <%= product.incoterm%></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-12">
+                        <ul style="list-style-type: none">
+                            <li>Measurement Unit: <%= product.measurementUnit%></li>
+                            <li>Required licenses in place: <%= product.licensePlace%></li>
+                            <li>Able to provide by: <%= product.ableToProvideBy%></li>
+                            <li>Expected price per unit: <%= product.EPPU%></li>
+                            <li>Suitability for the deal(%): <%= product.suitability%></li>
+                            <li>Production History: <%= product.history%></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="wrapper">
-    <div class="inner">
-        <div class="row">
-            <div class="col-6 align-right">
-                <button class="btn btn-lg btn-success"><a href="/supplier/products_services"> Back </a></button>
+    <section class="wrapper">
+        <div class="inner">
+            <div class="row">
+                <div class="col-6 align-right">
+                    <button class="btn btn-lg btn-success"><a href="/supplier/products_services"> Back </a></button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
+
 
 <!-- Footer -->
 <footer id="footer">

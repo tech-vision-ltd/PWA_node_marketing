@@ -39,9 +39,26 @@
             border: 5px solid green;
             opacity: 0.6;
         }
-        .box .content {
-            padding: 0.1rem;
-            padding-bottom: 25px;
+
+        .btn-info a {
+            color: white;
+        }
+
+        /*.box {*/
+        /*opacity: 0.85;*/
+        /*background-color: black;*/
+        /*}*/
+
+        /*.box header h2 {*/
+        /*color: white !important;*/
+        /*}*/
+
+        .box .form-group label {
+            color: white !important;
+        }
+
+        .navigate button a {
+            font-size: 20px;
         }
     </style>
 </head>
@@ -56,9 +73,9 @@
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="generic.html">Generics</a></li>
-        <li><a href="elements.html">Elements</a></li>
+        <li><a href="#">General</a></li>
+        <li><a href="#.html">Deal</a></li>
+        <li><a href="#.html">Supplier</a></li>
     </ul>
 </nav>
 
@@ -79,27 +96,27 @@
     Deal Details
 </div>
 <!-- One -->
-<section class="wrapper" style="background-color: #f2f2f2">
+<section class="wrapper">
     <div class="inner">
-        <div class="row">
+        <div class="row navigate" style="opacity: 0.75">
             <div class="col-md-3 col-sm-3 col-6 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info  active">
+                <button class="btn btn-block btn-info back_general_btn active">
                     <a data-toggle="tab" href="#general">General</a>
                 </button>
             </div>
             <div class="col-md-3 col-sm-3 col-6 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info">
-                    <a href="#deal">Deal</a>
+                <button class="btn btn-block btn-info to_deal_btn">
+                    <a href="#">Deal</a>
                 </button>
             </div>
             <div class="col-md-3 col-sm-3 col-6 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info">
-                    <a href="#buyer">Buyer</a>
+                <button class="btn btn-block btn-info to_buyer_btn">
+                    <a href="#">Buyer</a>
                 </button>
             </div>
             <div class="col-md-3 col-sm-3 col-6 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info">
-                    <a href="#supplier">Supplier</a>
+                <button class="btn btn-block btn-info to_supplier_btn">
+                    <a href="#">Supplier</a>
                 </button>
             </div>
         </div>
@@ -157,31 +174,29 @@
 
         <!-- Two -->
 
-        <section id="two" class="wrapper style2" style="padding-top: 0rem;">
-            <div class="inner">
+        <section class="wrapper" style="padding-top: 10px;top: -30px">
+            <div class="inner" style="background-color: black; padding: 5px 15px;opacity: 0.8">
                 <div class="align-left">
-                    <!--<a href="#" class="button alt">Learn More</a>-->
                     <header>
-                        <h2 style="padding-left: 30px">Your Story</h2>
+                        <h2 style="padding-left: 30px;color: white">Your Story</h2>
                     </header>
-                    <div style="border: 1px solid darkgrey">
-                        <p style="padding:5px 10px"> Cras aliquet urna ut sapien tincidunt, quis malesuada elit
-                            facilisis.
+                    <div>
+                        <p style="padding:5px 10px;color: white"> Cras aliquet urna ut sapien tincidunt, quis
+                            malesuada elit facilisis.
                             Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum.
                             Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="wrapper">
-            <div class="inner">
                 <div class="row">
                     <div class="col-6 align-right">
-                        <button class="btn btn-lg btn-success" type="button"> Cancel</button>
+                        <button class="btn btn-lg btn-primary" type="button" style="color: white!important;">
+                            Cancel
+                        </button>
                     </div>
                     <div class="col-6 align-left">
-                        <button class="btn btn-lg btn-success" type="button" id="to_deal_btn"> Continue</button>
+                        <button class="btn btn-lg btn-primary to_deal_btn" style="color: white!important;"
+                                type="button"> Continue
+                        </button>
                     </div>
                 </div>
             </div>
@@ -218,34 +233,36 @@
                 </div>
             </div>
         </section>
-
-
         <!-- Two -->
         <section id="two" class="wrapper style2" style="padding-top: 0rem;">
-            <div class="inner">
+            <div class="inner" style="background-color: black; padding: 5px 15px;opacity: 0.8">
                 <div class="align-left">
-                    <div style="border: 1px solid darkgrey">
-                        <p style="padding:5px 10px"> Cras aliquet urna ut sapien tincidunt, quis malesuada elit
+                    <header>
+                        <h2 style="padding-left: 30px;color: white">Explain the Deal</h2>
+                    </header>
+                    <div>
+                        <p style="padding:5px 10px;color: white"> Cras aliquet urna ut sapien tincidunt, quis
+                            malesuada elit
                             facilisis.
                             Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum.
                             Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="wrapper">
-            <div class="inner">
                 <div class="row">
                     <div class="col-6 align-right">
-                        <button class="btn btn-lg btn-success" type="button" id="back_general_btn"> Back</button>
+                        <button class="btn btn-lg btn-primary back_general_btn" type="button"
+                                style="color: white!important;"> Back
+                        </button>
                     </div>
                     <div class="col-6 align-left">
-                        <button class="btn btn-lg btn-success" type="button" id="to_buyer_btn"> Continue</button>
+                        <button class="btn btn-lg btn-primary to_buyer_btn" style="color: white!important;"
+                                type="button"> Continue
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
+
     </div>
     <div id="buyer" class="tab-pane">
         <section id="one" class="wrapper style2 tab-content" style="padding-top: 2rem;padding-bottom: 0rem;">
@@ -291,38 +308,35 @@
                 </div>
             </div>
         </section>
-
         <!-- Two -->
-
-        <section id="two" class="wrapper style2" style="padding-top: 0rem;">
-            <div class="inner">
+        <section class="wrapper" style="padding-top: 10px;top: -30px">
+            <div class="inner" style="background-color: black; padding: 5px 15px;opacity: 0.8">
                 <div class="align-left">
-                    <!--<a href="#" class="button alt">Learn More</a>-->
                     <header>
-                        <h2 style="padding-left: 30px">Your Story</h2>
+                        <h2 style="padding-left: 30px;color: white">Your Story</h2>
                     </header>
-                    <div style="border: 1px solid darkgrey">
-                        <p style="padding:5px 10px"> Cras aliquet urna ut sapien tincidunt, quis malesuada elit
-                            facilisis.
+                    <div>
+                        <p style="padding:5px 10px;color: white"> Cras aliquet urna ut sapien tincidunt, quis
+                            malesuada elit facilisis.
                             Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum.
                             Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="wrapper">
-            <div class="inner">
                 <div class="row">
                     <div class="col-6 align-right">
-                        <button class="btn btn-lg btn-success" type="button" id="back_deal_btn"> Back</button>
+                        <button class="btn btn-lg btn-primary" type="button" style="color: white!important;"
+                                id="back_deal_btn"> Back
+                        </button>
                     </div>
                     <div class="col-6 align-left">
-                        <button class="btn btn-lg btn-success" type="button" id="to_supplier_btn"> Continue</button>
+                        <button class="btn btn-lg btn-primary to_supplier_btn" style="color: white!important;"
+                                type="button"> Continue
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
+
     </div>
     <div id="supplier" class="tab-pane">
         <section id="demos">
@@ -359,17 +373,18 @@
             <div class="inner">
                 <div class="row">
                     <div class="col-6 align-right">
-                        <button class="btn btn-lg btn-success" type="button" id="back_buyer_btn"> Back</button>
+                        <button class="btn btn-lg btn-primary" type="button" style="color: white!important;"
+                                id="back_buyer_btn"> Back
+                        </button>
                     </div>
                     <!--<div class="col-6 align-left">-->
-                        <!--<button class="btn btn-lg btn-success" type="button" id="submit_btn"> Submit</button>-->
+                    <!--<button class="btn btn-lg btn-success" type="button" id="submit_btn"> Submit</button>-->
                     <!--</div>-->
                 </div>
             </div>
         </section>
     </div>
 </section>
-<input type="hidden" name="supplier_array" id="supplier_array"/>
 
 <!-- Scripts -->
 <!--<script src="/assets/js/jquery.min.js"></script>-->
@@ -396,30 +411,32 @@
         $('#article').hide();
 
 
-        $('#to_deal_btn').click(function () {
-            // if ($('#full_legal_name').val() == '' || $('#entity_type').val() == '' || $('#legal_address').val() == '' || $('#mailing_address').val() == ''
-            //     || $('#taxId').val() == '' || $('#phone').val() == '' || $('#company_name').val() == '' || $('#business_address').val() == ''
-            //     || $('#company_taxId').val() == '' || $('#company_phone').val() == '' || $('#company_website').val() == '' || $('#contactName').val() == '') {
-            //     toastr.error('Please fill out all the input fields.');
-            // } else {
-            $('#general').removeClass('active');
+        $('.to_deal_btn').click(function () {
+            $('.navigate div button.active').removeClass('active');
+            $('.to_deal_btn').addClass('active');
+            $('.tab-content .active').removeClass('active');
             $('#deal').addClass('active');
-            // }
         });
-        $('#back_general_btn').click(function () {
-            $('#deal').removeClass('active');
+        $('.back_general_btn').click(function () {
+            $('.navigate div button.active').removeClass('active');
+            $('.back_general_btn').addClass('active');
+            $('.tab-content .active').removeClass('active');
             $('#general').addClass('active');
         })
-        $('#to_buyer_btn').click(function () {
-            $('#deal').removeClass('active');
+        $('.to_buyer_btn').click(function () {
+            $('.navigate div button.active').removeClass('active');
+            $('.to_buyer_btn').addClass('active');
+            $('.tab-content .active').removeClass('active');
             $('#buyer').addClass('active');
         });
         $('#back_deal_btn').click(function () {
             $('#buyer').removeClass('active');
             $('#deal').addClass('active');
         });
-        $('#to_supplier_btn').click(function () {
-            $('#buyer').removeClass('active');
+        $('.to_supplier_btn').click(function () {
+            $('.navigate div button.active').removeClass('active');
+            $('.to_supplier_btn').addClass('active');
+            $('.tab-content .active').removeClass('active');
             $('#supplier').addClass('active');
         });
         $('#back_buyer_btn').click(function () {
@@ -461,8 +478,6 @@
         $('.checked').click(function () {
             alert('sss');
         })
-
-        $('#submit_btn').click(beforeSubmit);
     });
 
     function showSelectedItems() {
@@ -472,17 +487,6 @@
             names.push($(elements[i]).attr('data-name'));
         }
         $('textarea#ta_selected_items').val(names.join("\n"));
-    }
-
-    function beforeSubmit() {
-        var elements = $('div.checked');
-        var ids = [];
-        for (var i = 0; i < elements.length; i++) {
-            ids.push($(elements[i]).attr('data-id'));
-        }
-        console.log(ids);
-        $('#supplier_array').val(ids.join(","));
-        $('#borrower_form').submit();
     }
 
 </script>

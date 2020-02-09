@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const ejs = require('ejs');
 const path = require('path');
 const bodyParser = require('body-parser'),
     request = require('request');
@@ -19,32 +20,39 @@ var docClient = new aws.DynamoDB.DocumentClient();
 
 router.get("/", async (req, res) => {
 
-    // set middleware of borrower login
-    let userId = req.session.userId;
-    let password = req.session.password;
-    let type = req.session.type;
-    var params = {
-        TableName: 'Suppliers'
-    };
-    docClient.scan(params, function (err, data) {
-        if (err) {
-            console.error("Unable to add Buyer", ". Error JSON:", JSON.stringify(err, null, 2));
-        } else {
-            console.log("Success to Borrower___________");
-            res.render('borrower/general.ejs', {suppliers: data.Items});
-        }
-    });
-    // if (type == 'borrower') {
-    // res.render('borrower/general.ejs', {userId: userId, password: password});
-    // } else {
-    //     res.send('You must login as a borrower to access this site');
-    // }
+    if (req.session.type == 'borrower'){
+        let userId = req.session.userId;
+        let password = req.session.password;
+        let type = req.session.type;
+        var params = {
+            TableName: 'Suppliers',
+            FilterExpression: '#new= :new',
+            ExpressionAttributeNames: {
+                "#new": "new",
+            },
+            ExpressionAttributeValues: {
+                ':new': false,
+            },
+        };
+        docClient.scan(params, function (err, data) {
+            if (err) {
+                console.error("Unable to add Buyer", ". Error JSON:", JSON.stringify(err, null, 2));
+            } else {
+                res.render('borrower/general.ejs', {suppliers: data.Items});
+            }
+        });
+    } else {
+        res.send('You can not access this page.');
+    }
 });
 
 
 router.get("/deal", async (req, res) => {
-
-    res.render('borrower/deal.ejs');
+    if (req.session.type == 'borrower') {
+        res.render('borrower/openDeal.ejs');
+    } else {
+        res.send('You can not access this page.');
+    }
 });
 
 router.get("/buyer", async (req, res) => {
@@ -67,13 +75,43 @@ router.get("/supplier", async (req, res) => {
 });
 
 router.post('/deal/post', (req, res) => {
-    console.log(req.body);
+    var borrowerId = req.session.userId;
     var uuidv1 = uuid();
-    console.log('UUID_________________', uuidv1.toString());
+    var uuidBorrower = uuid();
+    console.log('UUID_________________', borrowerId, uuidBorrower, uuidv1);
+    var borrowerParams = {
+        TableName: 'Borrowers',
+        Item: {
+            "id": uuidBorrower,
+            "borrowerId": borrowerId,
+            "fullLegalName" : req.body.full_legal_name,
+            "entityType" : req.body.entity_type,
+            "legalAddress" : req.body.legal_address,
+            "mailingAddress" : req.body.mailing_address,
+            "taxId" : req.body.taxId,
+            "phone" : req.body.phone,
+            "companyName" : req.body.company_name,
+            "businessAddress" : req.body.business_address,
+            "companyTaxId" : req.body.company_taxId,
+            "companyPhone" : req.body.company_phone,
+            "companyWebsite" : req.body.company_website,
+            "contactName" : req.body.contactName,
+            "dealId": uuidv1,
+            "new":true
+        }
+    };
+    docClient.put(borrowerParams,function (err, data) {
+        if (err) throw err;
+        else {
+            console.log('Success put BorrowerItems________', req.body.phone);
+            // res.redirect('/borrower');
+        }
+    });
     var params = {
         TableName: 'Fulldeals',
         Item: {
-            "id": uuidv1.toString(),
+            "id": uuidv1,
+            "borrowerId": borrowerId,
             "fullLegalName" : req.body.full_legal_name,
             "entityType" : req.body.entity_type,
             "legalAddress" : req.body.legal_address,
@@ -108,7 +146,11 @@ router.post('/deal/post', (req, res) => {
             "buyerCompanyPhone" : req.body.buyer_company_phone,
             "buyerCompanyWebsite" : req.body.buyer_company_website,
             "buyerContactName" : req.body.buyer_contactName,
-            "supplierIds": req.body.supplier_array
+            "supplierIds": req.body.supplier_array,
+            "lenderIds": ' ',
+            "lenderNames": ' ',
+            "productIds": ' ',
+            "new": true
         }
     };
     docClient.put(params,function (err, data) {
@@ -117,7 +159,7 @@ router.post('/deal/post', (req, res) => {
             console.log('Success put items________', req.body.supplierIds);
             res.redirect('/borrower');
         }
-    })
+    });
 });
 
 router.post('/*', (req, res) => {

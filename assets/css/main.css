@@ -368,11 +368,11 @@ body {
 }
 
 .row > * {
-    padding: 0 0 0 2rem;
+    /*padding: 0 0 0 2rem;*/
 }
 
 .row {
-    margin: 0 0 -1px -2rem;
+    /*margin: 0 0 -1px -2rem;*/
 }
 
 .row.uniform > * {
@@ -2490,7 +2490,7 @@ button.special:active,
 /* Form */
 
 form {
-    margin: 0 0 2rem 0;
+    /*margin: 0 0 2rem 0;*/
 }
 
 label {
@@ -3318,7 +3318,7 @@ table.alt tbody tr td {
 }
 
 .wrapper.style2 {
-    background-color: #f2f2f2;
+    /*background-color: #f2f2f2;*/
     color: #a6a6a6;
 }
 
@@ -4427,7 +4427,7 @@ body.subpage {
 /* Banner */
 
 .banner {
-    background-color: #8a4680;
+    background-color: rgba(9, 7, 16, 0.84);
     color: #e2d1df;
     padding: 8em 0;
     position: relative;

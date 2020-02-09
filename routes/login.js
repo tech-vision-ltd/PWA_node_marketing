@@ -20,6 +20,7 @@ var docClient = new aws.DynamoDB.DocumentClient();
 
 router.get("/", async (req, res) => {
     // querying all employees
+    req.session.message = 'sss';
     var string = req.session.message;
     res.render('login/login.ejs', {messages: string});
 });
@@ -38,7 +39,7 @@ router.post("/post", (req, res) => {
 
     const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
-    request(verificationURL, function (error, response, body) {
+    // request(verificationURL, function (error, response, body) {
         var params = {
             TableName: 'Users',
             FilterExpression: '#type= :account_type AND #userId= :userId AND #password= :password',
@@ -59,31 +60,19 @@ router.post("/post", (req, res) => {
             } else {
                 // console.log("trying to register___________", data.Items.length);
                 var count = data.Items.length;
-                if (count == 0){
-                    console.log('invalid__________');
+                if (!count){
                     req.session.message = 'invalid';
                     return res.redirect('/login');
                 } else {
-                    console.log('Success__________');
                     req.session.userId = data.Items[0].id;
+                    req.session.userIdName = userId;
                     req.session.password = password;
                     req.session.type = account_type;
                     return res.redirect('/' + account_type);
                 }
             }
         })
-        // let fetch = User.where({userId: userId, password: password, type:account_type}).countDocuments(function (err, count) {
-        //     if (!count){
-        //         req.session.message = 'invalid';
-        //         return res.redirect('/login');
-        //     } else {
-        //         req.session.userId = userId;
-        //         req.session.password = password;
-        //         req.session.type = account_type;
-        //         return res.redirect('/' + account_type);
-        //     }
-        // });
-    });
+    // });
 });
 
 router.get("/renew_password", (req, res) => {

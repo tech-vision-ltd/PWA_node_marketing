@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                <div>
+                    <h6 class="card-title mb-1">Approved Borrowers Table</h6>
+                    <p class="text-muted card-sub-title">To enable a hover state on table rows.</p>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mg-b-0 text-center">
+                        <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>Borrower Name</th>
+                            <th>Company Phone</th>
+                            <th>Company Name</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for (var i = 0; i < borrowers.length; i++) { %>
+                            <tr>
+                                <td style="display: none"><%= borrowers[i].id%></td>
+                                <td><%= i + 1 %></td>
+                                <td><%= borrowers[i].fullLegalName%></td>
+                                <td><%= borrowers[i].companyPhone%></td>
+                                <td><%= borrowers[i].companyName%></td>
+                                <td>
+                                    <!--<button class="btn btn-success btn_approve_borrowers" onclick="">Approve</button>-->
+                                    <button class="btn btn-danger btn_reject_borrowers" onclick="rejectDeal('<%= borrowers[i].id%>')"> Reject </button>
+                                </td>
+                            </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

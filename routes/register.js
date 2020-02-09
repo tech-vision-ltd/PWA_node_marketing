@@ -43,7 +43,8 @@ router.post("/", (req, res) => {
             "phone": req.body.phone,
             "type": req.body.account_type,
             "password": req.body.password,
-            "repassword": req.body.repassword
+            "repassword": req.body.repassword,
+            "new": true
         }
     };
 
@@ -51,7 +52,7 @@ router.post("/", (req, res) => {
 
     const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
-    request(verificationURL,function(error,response,body) {
+    // request(verificationURL,function(error,response,body) {
         // body = JSON.parse(body);
         //
         // if(body.success !== undefined && !body.success) {
@@ -65,7 +66,7 @@ router.post("/", (req, res) => {
                 return res.redirect('/login');
             }
         });
-    });
+    // });
 
 });
 

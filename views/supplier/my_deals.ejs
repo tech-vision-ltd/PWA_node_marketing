@@ -1,33 +1,32 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Borrower General</title>
+    <title>Lender Open Deals</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/main.css"/>
     <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
     <style>
-        .box {
-            opacity: 0.85;
-            background-color: black;
-        }
-        .box header h2 {
-            color: white !important;
-        }
-        .box .form-group .form-control {
-            background-color: white !important;
-            border-radius: 5px;
-        }
-
-        .box .form-group label {
-            color: white !important;
+        .description_div {
+            background-color: white;
+            border-radius: 10px;
+            height: 120px;
+            overflow-y: scroll;
+            width: 98%;
+            padding: 10px 15px;
+            margin: 15px 5px;
         }
 
         .navigate button a {
             font-size: 20px;
             color: white;
         }
+
+        .btn-group-vertical button {
+            font-size: 0.75rem;
+        }
+
         .myLenderDeal {
             opacity:0.8;
             background-color: white;
@@ -35,7 +34,6 @@
         .lenderDealDiv table tbody tr td {
             color: black!important;
             vertical-align: middle;
-            font-weight: bold;
         }
         .lenderDealDiv {
             padding: 10px 15px;
@@ -59,9 +57,11 @@
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="generic.html">Generics</a></li>
-        <li><a href="elements.html">Elements</a></li>
+        <li><a href="#"> My Deals </a></li>
+        <li><a href="#"> Alerts </a></li>
+        <li><a href="#"> Messages </a></li>
+        <li><a href="#"> Account </a></li>
+        <li><a href="#"> Help </a></li>
     </ul>
 </nav>
 
@@ -79,10 +79,11 @@
 </section>
 
 <div id="borrower_title">
-    Supplier
+    Open Deals
 </div>
 <!-- One -->
-<div class="container-fluid" style="background-image: url('/images/slide02.jpg');background-repeat: no-repeat;background-size: cover;">
+<div class="container-fluid"
+     style="background-image: url('/images/slide06.jpg');background-repeat: no-repeat;background-size: cover;">
     <section class="wrapper">
         <div class="inner">
             <div class="row navigate" style="opacity: 0.75">
@@ -92,7 +93,7 @@
                     </button>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                    <button class="btn btn-block btn-info active">
+                    <button class="btn btn-block btn-info">
                         <a href="/supplier/products_services"> Products/Services </a>
                     </button>
                 </div>
@@ -102,7 +103,7 @@
                     </button>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                    <button class="btn btn-block btn-info">
+                    <button class="btn btn-block btn-info active">
                         <a href="/supplier/my_deals"> My Deals </a>
                     </button>
                 </div>
@@ -113,25 +114,25 @@
     <section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
         <div class="inner myLenderDeal">
             <div class="lenderDealDiv text-center">
-                <h2> Product/Services Info </h2>
-                <table class="table-hover" id="product_table">
+                <h2> Open Deals Table </h2>
+                <table>
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Description</th>
-                        <th>Supplier Name</th>
-                        <th>Factory Location</th>
-                        <th>Suitability</th>
+                        <th>Company Name</th>
+                        <th>Total Deal Amount</th>
+                        <th>Buyer Name</th>
+                        <th>Contact Name</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <% for (var i=0; i<products.length; i++) { %>
-                        <tr class="deal_display" data-id="<%= products[i].id%>">
+                    <% for (var i=0; i<deals.length; i++) { %>
+                        <tr class="deal_display" data-id="<%= deals[i].id%>">
                             <td><%= i+1 %></td>
-                            <td><%= products[i].productServiceDescription %></td>
-                            <td><%= products[i].supplierName %></td>
-                            <td><%= products[i].factoryLocation %></td>
-                            <td><%= products[i].suitability %></td>
+                            <td><%= deals[i].companyName %></td>
+                            <td><%= deals[i].totalDealAmount %></td>
+                            <td><%= deals[i].buyerFullLegalName %></td>
+                            <td><%= deals[i].contactName %></td>
                         </tr>
                     <% } %>
                     </tbody>
@@ -139,12 +140,20 @@
             </div>
         </div>
     </section>
+
     <!-- Two -->
-    <section class="wrapper">
-        <div class="inner">
-            <div class="text-center">
-                <button class="btn btn-lg btn-success"><a href="/supplier/products_services/add"> New Product/Service </a>
-                </button>
+    <section class="wrapper" style="padding-top: 10px;top: 20px">
+        <div class="inner" style="background-color: black; padding: 5px 15px;opacity: 0.8">
+            <div class="align-left">
+                <header>
+                    <h2 style="padding-left: 30px;color: white">Your Story</h2>
+                </header>
+                <div>
+                    <p style="padding:5px 10px;color: white"> Cras aliquet urna ut sapien tincidunt, quis
+                        malesuada elit facilisis.
+                        Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum.
+                        Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -184,17 +193,14 @@
 <!--<script src="./js/menu.js"></script>-->
 <script>
     $(document).ready(function () {
-        // toastr.success('You are logged in as a supplier.');
-
+        toastr.success('You are logged in as a lender.');
         $('#article').hide();
-
-        $("#product_table tbody tr").click(function () {
-            var productId = $(this).attr('data-id');
-            var string = encodeURIComponent(productId);
-            // alert(productId);
-            window.location.replace("/supplier/products_services/details?id=" + string);
+        $('.deal_display').click(function () {
+            $(this).css('opacity', '0.6');
+            var dealId = $(this).attr('data-id');
+            window.location.href='/lender/openDeals/details/?id=' + dealId;
         });
-    });
+    })
 </script>
 </body>
 </html>

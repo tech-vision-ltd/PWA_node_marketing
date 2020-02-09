@@ -83,7 +83,7 @@
                         </div>
                         <div class="form-group text-center">
                             <div class="g-recaptcha" data-sitekey="6LewaNMUAAAAAFfLcjjfhQlWSgEjYVsQv5CjhlA3"
-                                 onclick="onCaptchaClick()">
+                                       onclick="onCaptchaClick()">
 
                             </div>
                         </div>
@@ -127,12 +127,12 @@
 <script>
     $(document).ready(function () {
         var message = '<%= messages %>';
-        if (message == 'recaptcha') {
-            toastr.error("You must do recaptcha first.");
-        }
-        if (message == 'admin' || message == 'admin_invalid') {
+        if (message == 'admin' || message == 'admin_invalid' || message == 'adminRecaptcha') {
             $('#account_type_div').hide();
             $('#login_form').attr('action', '/admin/login');
+        }
+        if (message == 'recaptcha' || message == 'adminRecaptcha') {
+            toastr.error("You must do recaptcha first.");
         }
         if (message == 'invalid' || message == 'admin_invalid') {
             toastr.error("Invalid UserID or Password.");

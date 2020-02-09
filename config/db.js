@@ -1,14 +1,29 @@
-const mongoose = require('mongoose');
+const dynamoose = require('dynamoose');
+const dynalite = require('dynalite');
 
-const connectDB=async()=>{
+const startUp = async () => {
 
-    const conn = await mongoose.connect('mongodb://localhost:27017/PWA',{
-        useNewUrlParser:true,
-        useCreateIndex:true,
-        useFindAndModify:true,
-        useUnifiedTopology: true
+    const dynaliteServer = dynalite();
+    await dynaliteServer.listen(8000, function (err) {
+        if (err) throw err;
+        console.log('DynamoDB connected');
     });
-    // console.log(`MongoDB connected:${conn.connection.host}`);
-}
+    return dynaliteServer;
+    // console.log('DynamoDB connected:');
+};
 
-module.exports=connectDB;
+const createDynamooseInstance = () => {
+    dynamoose.AWS.config.update({
+        accessKeyId:'shared',
+        secretAccessKey:'shared',
+        region:'local'
+    });
+    dynamoose.local();
+};
+
+const connectDB = async () => {
+    await startUp();
+    createDynamooseInstance();
+};
+
+module.exports = connectDB;

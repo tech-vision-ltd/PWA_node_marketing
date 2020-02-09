@@ -1,12 +1,34 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Borrower General</title>
+    <title>Supplier</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/main.css"/>
     <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
+    <style>
+        .box {
+            opacity: 0.85;
+            background-color: black;
+        }
+        .box header h2 {
+            color: white !important;
+        }
+        .box .form-group .form-control {
+            background-color: white !important;
+            border-radius: 5px;
+        }
+
+        .box .form-group label {
+            color: white !important;
+        }
+
+        .navigate button a {
+            font-size: 20px;
+            color: white;
+        }
+    </style>
 </head>
 <body style="background-color: #f2f2f2">
 
@@ -19,9 +41,9 @@
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="generic.html">Generics</a></li>
-        <li><a href="elements.html">Elements</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Generics</a></li>
+        <li><a href="#">Elements</a></li>
     </ul>
 </nav>
 
@@ -42,138 +64,141 @@
     Supplier
 </div>
 <!-- One -->
-<section class="wrapper" style="background-color: #f2f2f2">
-    <div class="inner">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info">
-                    <a href="/supplier"> Corporate Info </a>
-                </button>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info active">
-                    <a href="/supplier/products_services"> Products/Services </a>
-                </button>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info">
-                    <a href="/supplier/open_deals"> Open Deals </a>
-                </button>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                <button class="btn btn-block btn-info">
-                    <a href="/supplier/my_deals"> My Deals </a>
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<form action="/supplier/corporate" method="post" id="form_supplier_corporate">
-    <section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
+<div class="container-fluid" style="background-image: url('/images/slide02.jpg');background-repeat: no-repeat;background-size: cover;">
+    <section class="wrapper">
         <div class="inner">
-            <div class="grid-style">
-
-                <div>
-                    <div class="box">
-                        <div class="content">
-                            <header class="align-center">
-                                <h2>Supplier Information</h2>
-                            </header>
-                            <div class="form-group text-left">
-                                <label>First Name:</label>
-                                <input class="form-control" type="text" name="firstName"
-                                       id="full_legal_name" required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>Last Name:</label>
-                                <input class="form-control" type="text" name="lastName" id="entity_type"
-                                       required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>Legal Address:</label>
-                                <input class="form-control" type="text" name="legal_address" id="legal_address"
-                                       required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>Email:</label>
-                                <input class="form-control" type="text" name="email"
-                                       id="mailing_address" required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>Phone:</label>
-                                <input class="form-control" type="number" name="phone" id="taxId" required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>CountryCode:</label>
-                                <input class="form-control" type="text" name="countryCode" id="phone" required>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row navigate" style="opacity: 0.75">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info active">
+                        <a href="/supplier"> Corporate Info </a>
+                    </button>
                 </div>
-
-                <div>
-                    <div class="box">
-                        <!--<div class="image fit">-->
-                        <!--<img src="images/pic03.jpg" alt=""/>-->
-                        <!--</div>-->
-                        <div class="content">
-                            <header class="align-center">
-                                <h2>Company Information</h2>
-                            </header>
-                            <div class="form-group text-left">
-                                <label>Company Name:</label>
-                                <input class="form-control" type="text" name="company_name" id="company_name"
-                                       required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>Business Address:</label>
-                                <input class="form-control" type="text" name="business_address"
-                                       id="business_address" required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>Tax ID:</label>
-                                <input class="form-control" type="text" name="company_taxId" id="company_taxId"
-                                       required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>Phone:</label>
-                                <input class="form-control" type="number" name="company_phone"
-                                       id="company_phone" required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>Company Website:</label>
-                                <input class="form-control" type="text" name="company_website"
-                                       id="company_website" required>
-                            </div>
-                            <div class="form-group text-left">
-                                <label>Account Contact Name:</label>
-                                <input class="form-control" type="text" name="contactName" id="contactName"
-                                       required>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info">
+                        <a href="/supplier/products_services"> Products/Services </a>
+                    </button>
                 </div>
-
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info">
+                        <a href="/supplier/open_deals"> Open Deals </a>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info">
+                        <a href="/supplier/my_deals"> My Deals </a>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
-</form>
 
-<!-- Two -->
+    <form action="/supplier/corporate" method="post" id="form_supplier_corporate">
+        <section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
+            <div class="inner">
+                <div class="grid-style">
 
-<section class="wrapper">
-    <div class="inner">
-        <div class="row">
-            <div class="col-6 align-right">
-                <button class="btn btn-lg btn-success"> Cancel </button>
+                    <div>
+                        <div class="box">
+                            <div class="content">
+                                <header class="align-center">
+                                    <h2>Supplier Information</h2>
+                                </header>
+                                <div class="form-group text-left">
+                                    <label>First Name:</label>
+                                    <input class="form-control" type="text" name="firstName"
+                                           id="full_legal_name" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Last Name:</label>
+                                    <input class="form-control" type="text" name="lastName" id="entity_type"
+                                           required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Legal Address:</label>
+                                    <input class="form-control" type="text" name="legal_address" id="legal_address"
+                                           required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Email:</label>
+                                    <input class="form-control" type="text" name="email"
+                                           id="mailing_address" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Phone:</label>
+                                    <input class="form-control" type="number" name="phone" id="taxId" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>CountryCode:</label>
+                                    <input class="form-control" type="text" name="countryCode" id="phone" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="box">
+                            <!--<div class="image fit">-->
+                            <!--<img src="images/pic03.jpg" alt=""/>-->
+                            <!--</div>-->
+                            <div class="content">
+                                <header class="align-center">
+                                    <h2>Company Information</h2>
+                                </header>
+                                <div class="form-group text-left">
+                                    <label>Company Name:</label>
+                                    <input class="form-control" type="text" name="company_name" id="company_name"
+                                           required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Business Address:</label>
+                                    <input class="form-control" type="text" name="business_address"
+                                           id="business_address" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Tax ID:</label>
+                                    <input class="form-control" type="text" name="company_taxId" id="company_taxId"
+                                           required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Phone:</label>
+                                    <input class="form-control" type="number" name="company_phone"
+                                           id="company_phone" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Company Website:</label>
+                                    <input class="form-control" type="text" name="company_website"
+                                           id="company_website" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label>Account Contact Name:</label>
+                                    <input class="form-control" type="text" name="contactName" id="contactName"
+                                           required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="col-6 align-left">
-                <button class="btn btn-lg btn-success" id="btn_corporate_submit"> Submit </button>
+        </section>
+    </form>
+
+    <!-- Two -->
+
+    <section class="wrapper">
+        <div class="inner">
+            <div class="row">
+                <div class="col-6 align-right">
+                    <button class="btn btn-lg btn-success" style="opacity:0.9;color: white!important;"> Cancel </button>
+                </div>
+                <div class="col-6 align-left">
+                    <button class="btn btn-lg btn-success" style="opacity:0.9;color: white!important;" id="btn_corporate_submit"> Submit </button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
+
 
 
 <!-- Footer -->

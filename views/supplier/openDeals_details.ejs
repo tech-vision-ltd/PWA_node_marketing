@@ -1,37 +1,42 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Purchase Orders</title>
+    <title>Borrower Buyer</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/main.css"/>
     <link rel="stylesheet" href="/assets/plugins/toastr/toastr.min.css">
     <style>
-        .nav-pills .nav-item a {
-            color: white;
+        .btn-group-vertical button {
+            font-size: 0.75rem;
         }
-        .purchase_summary {
-            background-color: white;
-            opacity: 0.8;
-            padding: 10px 20px;
+        #iframe_borrower {
+            width: 100%;
+            height: 1000px;
+            border-bottom: 25px solid black;
+        }
+        button a {
+            color: white!important;
         }
     </style>
 </head>
-<body style="background-color: #f2f2f2">
+<body>
 
 <!-- Header -->
 <header id="header" class="alt">
-    <div class="logo"><a href="/buyer"><span>Buyer</span></a></div>
+    <div class="logo"><a href="/supplier"><span>Supplier</span></a></div>
     <a href="#menu" id="menu_link"><span id="span_menu">Menu</span></a>
 </header>
 
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Generics</a></li>
-        <li><a href="#">Elements</a></li>
+        <li><a href="#"> My Deals </a></li>
+        <li><a href="#"> Alerts </a></li>
+        <li><a href="#"> Messages </a></li>
+        <li><a href="#"> Account </a></li>
+        <li><a href="#"> Help </a></li>
     </ul>
 </nav>
 
@@ -49,64 +54,60 @@
 </section>
 
 <div id="borrower_title">
-    Buyer
+    Supplier
 </div>
 <!-- One -->
-<div class="container-fluid"
-     style="background-image: url('/images/slide04.jpg');background-repeat: no-repeat;background-size: cover;">
+<div class="container-fluid" style="background-image: url('/images/slide04.jpg');background-repeat: no-repeat;background-size: cover;">
     <section class="wrapper">
         <div class="inner">
-            <div>
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/buyer">Corporate Info</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/buyer/purchase_orders">Purchase Orders</a>
-                    </li>
-                </ul>
+            <div class="row navigate" style="opacity: 0.75">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info">
+                        <a href="/supplier"> Corporate Info </a>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info">
+                        <a href="/supplier/products_services"> Products/Services </a>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info active">
+                        <a href="/supplier/open_deals"> Open Deals </a>
+                    </button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
+                    <button class="btn btn-block btn-info">
+                        <a href="/supplier/my_deals"> My Deals </a>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
         <div class="inner">
-            <div class="purchase_summary text-center">
-                <h2> Purchase Order Summary Info </h2><br>
-                <table id="purchase_table" class="table-hover">
-                    <thead>
-                    <tr>
-                        <th> No</th>
-                        <th> Delivery Address</th>
-                        <th> Incoterm</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <% for (var i = 0;i < purchaseOrders.length;i++) { %>
-                        <tr>
-                            <td style="display: none"><%= purchaseOrders[i].id %></td>
-                            <td><%= i + 1 %></td>
-                            <td><%= purchaseOrders[i].deliveryAddress %></td>
-                            <td><%= purchaseOrders[i].incoterm %></td>
-                        </tr>
-                    <% } %>
-                    </tbody>
-                </table>
+            <div class="grid-style">
+                <iframe src="/lender/dealDetails" frameborder="0" id="iframe_borrower"></iframe>
             </div>
         </div>
     </section>
 
     <section class="wrapper">
         <div class="inner">
-            <div class="text-center">
-                <button class="btn btn-lg btn-success"><a href="/buyer/purchase_order/add"> New Purchase Order </a>
-                </button>
+            <div class="row">
+                <div class="col-6 align-right">
+                    <button class="btn btn-lg btn-info"><a href="/supplier/open_deals"> Cancel </a></button>
+                </div>
+                <div class="col-6 align-left">
+                    <button class="btn btn-lg btn-info"><a href="/supplier/participate"> Participate </a></button>
+                </div>
             </div>
         </div>
     </section>
 </div>
 
-
+<!-- Two -->
 
 <!-- Footer -->
 <footer id="footer">
@@ -140,15 +141,11 @@
 <!--<script src="./js/menu.js"></script>-->
 <script>
     $(document).ready(function () {
-        // toastr.success('You are logged in as a borrower.');
-
+        toastr.success('You are logged in as a lender.');
         $('#article').hide();
-
-        $("#purchase_table tbody tr").click(function () {
-            let id = $(this).children('td:nth-child(1)').text();
-            let location = $(this).children('td:nth-child(3)').text();
-            var string = encodeURIComponent(id);
-            window.location.replace("/buyer/purchase_orders/details?id=" + string);
+        $('.deal_display').click(function () {
+            $(this).css('opacity', '0.6');
+            window.location.href='/lender/openDeals/details';
         });
     })
 </script>

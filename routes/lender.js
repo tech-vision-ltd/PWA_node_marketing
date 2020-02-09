@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const path = require('path');
-const bodyParser = require('body-parser'),
-    request = require('request');
+// const ejs = require('ejs');
+// const path = require('path');
+// const bodyParser = require('body-parser'),
+//     request = require('request');
 // Deal = require('../models/Deal');
-var session = require('express-session');
 // const db = require("../../JoinRoutes");
 var aws = require('aws-sdk');
 var uuid = require('uuid/v1');
@@ -19,31 +19,22 @@ var docClient = new aws.DynamoDB.DocumentClient();
 
 router.get("/", async (req, res) => {
     var userId = req.session.userId;
-    var password = req.session.password;
-    var type = req.session.type;
-    req.session.userId = userId;
-    req.session.type = type;
-//Using mongodb
-    // Deal.find(function (err, i) {
-    //     // console.log('deals____________________________________', i);
-    //     if (err) return console.log(err);
-    //     res.render('lender/open_deal.ejs', {deals: i});
-    // });
-//using middleware
-    // if (type == 'lender') {
-    //     res.render('lender/open_deal.ejs', {userId: userId, password: password});
-    // } else {
-    //     res.send('You must login as a lender to access this site');
-    // }
-//using dynamodb
     var params = {
-        TableName: 'Fulldeals'
+        TableName: 'Fulldeals',
+        FilterExpression: 'NOT contains (#lenderIds, :userId) AND #new= :false',
+        ExpressionAttributeNames: {
+            "#lenderIds": "lenderIds",
+            "#new": "new"
+        },
+        ExpressionAttributeValues: {
+            ':userId': userId,
+            ':false': false
+        },
     };
     docClient.scan(params, function (err, data) {
         if (err) {
             console.error("Unable__________", ". Error JSON:", JSON.stringify(err, null, 2));
         } else {
-            // console.log("Success___________");
             res.render('lender/open_deal.ejs', {deals: data.Items, userId: userId});
         }
     });
@@ -52,7 +43,6 @@ router.get("/", async (req, res) => {
 router.get('/openDeals/details', (req, res) => {
     var id = req.query.id;
     req.session.dealId = id;
-    // console.log('id____________________', id);
     res.render('lender/openDeals_details.ejs');
 });
 
@@ -72,14 +62,10 @@ router.get('/dealDetails', (req, res) => {
     var response = {};
     let sendResponse = (supplier_array) => {
         response.suppliers = supplier_array;
-
-        // console.log('result: ', response);
         res.render('lender/showDetails.ejs', {deals: response.full_deal, suppliers: response.suppliers});
     };
 
     var id = req.session.dealId;
-    req.session.dealId = id;
-    // console.log('dealDetailsId______________________', id);
     var params = {
         TableName: 'Fulldeals',
         FilterExpression: '#id= :id',
@@ -96,7 +82,6 @@ router.get('/dealDetails', (req, res) => {
             console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
         } else {
             response.full_deal = full_deal_data.Items;
-
             var supplierIds = full_deal_data.Items[0].supplierIds;
             var supplierIdsArray = supplierIds.split(',');
             var supplier_array = [];
@@ -137,7 +122,7 @@ router.get('/dealDetails', (req, res) => {
 
 router.get('/fund', (req, res) => {
     var id = req.session.dealId;
-    req.session.dealId = id;
+    // req.session.dealId = id;
     var params = {
         TableName: 'Fulldeals',
         FilterExpression: '#id= :id',
@@ -152,98 +137,95 @@ router.get('/fund', (req, res) => {
         if (err) {
             console.error("Unable__________", ". Error JSON:", JSON.stringify(err, null, 2));
         } else {
-            // console.log("Success___________");
             res.render('lender/fundDeal.ejs', {deals: data.Items});
         }
     });
 });
-
+//financed an open deal so it is converted to the my deal.
 router.post('/fund', (req, res) => {
     var uuid_v1 = uuid();
     var dealId = req.body.dealId;
     var fundAmount = req.body.fundAmount;
     var lenderId = req.session.userId;
-    req.session.userId = lenderId;
-    // console.log('lenderId_____________', lenderId);
+    var lenderName = req.session.userIdName;
+    var updatedLenderIds = '';
+    var updatedLenderNames = '';
+
+    function updateItems(a, b) {
+        console.log("Item_______", a, b);
+        var params = {
+            TableName: 'Fulldeals',
+            Key: {id: dealId},
+            UpdateExpression: "SET #lenderIds= :a, #lenderNames= :b",
+            ExpressionAttributeNames : {
+                "#lenderIds": 'lenderIds',
+                "#lenderNames": 'lenderNames'
+            },
+            ExpressionAttributeValues : {
+                ":a": a,
+                ":b": b
+            }
+        };
+        docClient.update(params, function (err, data) {
+            if (err) throw err;
+        })
+    }
+
     var params = {
         TableName: 'lenderDealTable',
         Item: {
             "id": uuid_v1,
             "lenderId": lenderId,
+            "lenderName": lenderName,
             "dealId": dealId,
-            "fundAmount": fundAmount
+            "fundAmount": fundAmount,
+            "new": true
         }
     };
     docClient.put(params, function (err, data) {
         if (err) {
             console.error("Unable to add Buyer", ". Error JSON:", JSON.stringify(err, null, 2));
-        } else {
-            console.log('klhkglh________________', req.session);
-            // res.redirect('/lender/myDeals');
         }
     });
-    res.redirect('/lender');
+    var dealParams = {
+        TableName: 'Fulldeals',
+        FilterExpression: '#id= :dealId',
+        ExpressionAttributeNames: {"#id": "id"},
+        ExpressionAttributeValues: {':dealId': dealId},
+    };
+    docClient.scan(dealParams, function (err, data) {
+        if (err) throw err;
+        else {
+            var existLenderIds = data.Items[0].lenderIds;
+            updatedLenderIds = existLenderIds + lenderId + ', ';
+            var existLenderNames = data.Items[0].lenderNames;
+            updatedLenderNames = existLenderNames + lenderName + ', ';
+        }
+        updateItems(updatedLenderIds, updatedLenderNames);
+    });
+    res.redirect('/lender/my_deal');
 });
 
-router.get('/myDeals', (req, res) => {
-    let sendResponse = (dealArray) => {
-        console.log('DealArray__________', dealArray);
-        res.render('lender/my_deals.ejs', {deals: dealArray});
-    };
-
-    var lenderId = req.session.userId;
-    console.log('lenderId___________', req.session.userId);
-    req.session.userId = lenderId;
+router.get('/my_deal', (req, res) => {
+    var userId = req.session.userId;
+    var reasonableDealIds = [];
     var params = {
-        TableName: 'lenderDealTable',
-        FilterExpression: '#lenderId= :lenderId',
+        TableName: 'Fulldeals',
+        FilterExpression: 'contains (#lenderIds, :userId) AND #new= :new',
         ExpressionAttributeNames: {
-            "#lenderId": "lenderId",
+            "#lenderIds": "lenderIds",
+            "#new": "new"
         },
         ExpressionAttributeValues: {
-            ':lenderId': lenderId,
+            ':userId': userId,
+            ':new': false
         },
     };
     docClient.scan(params, function (err, data) {
         if (err) {
-            console.error("Unable to add Buyer", ". Error JSON:", JSON.stringify(err, null, 2));
+            console.error("Unable__________", ". Error JSON:", JSON.stringify(err, null, 2));
         } else {
-            var dealArray = [];
-            console.log('myDeals_____________', data.Items);
-            for (var i = 0; i < data.Items.length; i++) {
-                var dealId = data.Items[i].dealId;
-                var dealParams = {
-                    TableName: 'Fulldeals',
-                    FilterExpression: '#dealId= :dealId',
-                    ExpressionAttributeNames: {
-                        "#dealId": "id",
-                    },
-                    ExpressionAttributeValues: {
-                        ':dealId': dealId,
-                    },
-                };
-                try {
-                    if (i === data.Items.length - 1) {
-                        docClient.scan(dealParams, function (err, dealData) {
-                            if (!err) {
-                                dealArray.push(dealData.Items[i]);
-                                console.log('dealsdfsdaf______', dealData);
-                            }
-                            sendResponse(dealArray);
-                        })
-                    } else {
-                        docClient.scan(dealParams, function (err, dealData) {
-                            if (!err) {
-                                dealArray.push(dealData.Items[i]);
-                            }
-                        });
-                    }
-                } catch (e) {
-                    console.log(e.message);
-                    sendResponse(null);
-                }
-            }
-            // res.render('lender/my_deals.ejs', {deals: data.Items});
+            res.render('lender/my_deal.ejs', {deals: data.Items, userId: userId});
         }
     });
 });

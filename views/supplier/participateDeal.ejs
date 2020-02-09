@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Borrower General</title>
+    <title>Supplier</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -12,9 +12,11 @@
             opacity: 0.85;
             background-color: black;
         }
+
         .box header h2 {
             color: white !important;
         }
+
         .box .form-group .form-control {
             background-color: white !important;
             border-radius: 5px;
@@ -28,23 +30,9 @@
             font-size: 20px;
             color: white;
         }
-        .myLenderDeal {
-            opacity:0.8;
-            background-color: white;
-        }
-        .lenderDealDiv table tbody tr td {
-            color: black!important;
-            vertical-align: middle;
-            font-weight: bold;
-        }
-        .lenderDealDiv {
-            padding: 10px 15px;
-        }
-        .lenderDealDiv table {
-            margin-top: 25px;
-        }
-        .lenderDealDiv table tbody tr:hover {
-            background-color: lightskyblue;
+
+        .box ul li {
+            color: white !important;
         }
     </style>
 </head>
@@ -59,9 +47,9 @@
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="generic.html">Generics</a></li>
-        <li><a href="elements.html">Elements</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Generics</a></li>
+        <li><a href="#">Elements</a></li>
     </ul>
 </nav>
 
@@ -82,7 +70,8 @@
     Supplier
 </div>
 <!-- One -->
-<div class="container-fluid" style="background-image: url('/images/slide02.jpg');background-repeat: no-repeat;background-size: cover;">
+<div class="container-fluid"
+     style="background-image: url('/images/slide02.jpg');background-repeat: no-repeat;background-size: cover;">
     <section class="wrapper">
         <div class="inner">
             <div class="row navigate" style="opacity: 0.75">
@@ -92,12 +81,12 @@
                     </button>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                    <button class="btn btn-block btn-info active">
+                    <button class="btn btn-block btn-info">
                         <a href="/supplier/products_services"> Products/Services </a>
                     </button>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom: 15px">
-                    <button class="btn btn-block btn-info">
+                    <button class="btn btn-block btn-info active">
                         <a href="/supplier/open_deals"> Open Deals </a>
                     </button>
                 </div>
@@ -111,45 +100,75 @@
     </section>
 
     <section id="one" class="wrapper style2" style="padding-top: 2rem;padding-bottom: 0rem;">
-        <div class="inner myLenderDeal">
-            <div class="lenderDealDiv text-center">
-                <h2> Product/Services Info </h2>
-                <table class="table-hover" id="product_table">
-                    <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Description</th>
-                        <th>Supplier Name</th>
-                        <th>Factory Location</th>
-                        <th>Suitability</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <% for (var i=0; i<products.length; i++) { %>
-                        <tr class="deal_display" data-id="<%= products[i].id%>">
-                            <td><%= i+1 %></td>
-                            <td><%= products[i].productServiceDescription %></td>
-                            <td><%= products[i].supplierName %></td>
-                            <td><%= products[i].factoryLocation %></td>
-                            <td><%= products[i].suitability %></td>
-                        </tr>
-                    <% } %>
-                    </tbody>
-                </table>
+        <div class="inner">
+            <div class="grid-style">
+                <div>
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <h2>Deal Information</h2>
+                            </header>
+                            <ul style="list-style-type: none">
+                                <li>Borrower Name: <%= deal.fullLegalName %></li>
+                                <li>Company Name: <%= deal.companyName %></li>
+                                <li>Total Deal Amount: <%= deal.totalDealAmount %></li>
+                                <li>Deal Type: <%= deal.dealType %></li>
+                                <li>Contact Name: <%= deal.contactName %></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="box">
+                        <!--<div class="image fit">-->
+                        <!--<img src="images/pic03.jpg" alt=""/>-->
+                        <!--</div>-->
+                        <div class="content">
+                            <header class="align-center">
+                                <h2>Product Services</h2>
+                            </header>
+                            <div class="form-group text-left">
+                                <!--<label>Company Name:</label>-->
+                                <select name="productService" id="productService" class="form-control">
+                                    <% for (var i = 0;i < products.length;i++) { %>
+                                    <option value="<%= products[i].id %>"><%= products[i].productServiceDescription %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            <div class="tab-content">
+                                <!--<ul>-->
+                                    <!--<li>Supplier Name: <%= products[0].supplierName %></li>-->
+                                <!--</ul>-->
+                            </div>
+                            <br>
+                            <div class="text-center" style="width: 100%">
+                                <button class="btn btn-lg btn-success" id="btn_product_submit"> Submit </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
     <!-- Two -->
-    <section class="wrapper">
-        <div class="inner">
-            <div class="text-center">
-                <button class="btn btn-lg btn-success"><a href="/supplier/products_services/add"> New Product/Service </a>
-                </button>
-            </div>
-        </div>
-    </section>
-</div>
 
+    <!--<section class="wrapper">-->
+        <!--<div class="inner">-->
+            <!--<div class="row">-->
+                <!--<div class="col-6 align-right">-->
+                    <!--<button class="btn btn-lg btn-success" style="opacity:0.9;color: white!important;"> Cancel</button>-->
+                <!--</div>-->
+                <!--<div class="col-6 align-left">-->
+                    <!--<button class="btn btn-lg btn-success" style="opacity:0.9;color: white!important;"-->
+                            <!--id="btn_corporate_submit"> Submit-->
+                    <!--</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
+</div>
 
 
 <!-- Footer -->
@@ -184,17 +203,24 @@
 <!--<script src="./js/menu.js"></script>-->
 <script>
     $(document).ready(function () {
-        // toastr.success('You are logged in as a supplier.');
 
         $('#article').hide();
 
-        $("#product_table tbody tr").click(function () {
-            var productId = $(this).attr('data-id');
-            var string = encodeURIComponent(productId);
-            // alert(productId);
-            window.location.replace("/supplier/products_services/details?id=" + string);
+        $('#btn_product_submit').click(function () {
+            var productId = $('#productService').val();
+            $.ajax({
+                url:'/supplier/participate',
+                data: {
+                    productId: productId
+                },
+                type: 'post',
+                success: function (data) {
+                    alert(data);
+                }
+            })
         });
-    });
+
+    })
 </script>
 </body>
 </html>

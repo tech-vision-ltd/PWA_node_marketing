@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                <div>
+                    <h6 class="card-title mb-1">Approved Purchase Orders Table</h6>
+                    <p class="text-muted card-sub-title">To enable a hover state on table rows.</p>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mg-b-0 text-center">
+                        <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>Buyer Name</th>
+                            <th>Item Description</th>
+                            <th>prepared</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for (var i = 0; i < purchases.length; i++) { %>
+                            <tr>
+                                <td style="display: none"><%= purchases[i].id%></td>
+                                <td><%= i + 1 %></td>
+                                <td><%= purchases[i].buyerName%></td>
+                                <td><%= purchases[i].itemDescription%></td>
+                                <td><%= purchases[i].prepared%></td>
+                                <td>
+                                    <button class="btn btn-success btn_approve_purchases">Approve</button>
+                                    <button class="btn btn-danger btn_reject_purchases"> Reject </button>
+                                </td>
+                            </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
