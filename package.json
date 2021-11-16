@@ -5,7 +5,7 @@
 	"version": "1.0.2",
 	"author": "https://github.com/gokulkrishh",
 	"dependencies": {
-		"aws-sdk": "^2.610.0",
+		"aws-sdk": "^2.814.0",
 		"body-parser": "^1.18.3",
 		"color": "^3.1.2",
 		"colors": "^1.4.0",
